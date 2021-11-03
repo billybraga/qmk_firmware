@@ -1,8 +1,6 @@
-﻿#!/usr/bin/bash
-set -x
+#! /usr/bin/bash
+
 set -e
+while [ ! -f /mnt/c/Users/bbraga/Downloads/billybraga.json ]; do sleep 2; done
 
-while read i; do if [ "$i" = billybraga.json ]; then break; fi; done \
-   < <(inotifywait  -e create,open --format '%f' --quiet /mnt/c/Users/bbraga/Downloads --monitor)
-
-~/dev/thirdparty/qmk/qmk_firmware/update.sh
+$(dirname $0)/update.sh
