@@ -229,7 +229,7 @@
       "LCTL(KC_PGDN)",
       "KC_NO",
       "KC_NO",
-      "LSFT(KC_DEL)",
+      "KC_LSFT",
       "RCS(KC_A)",
       "KC_NO",
       "KC_NO",
