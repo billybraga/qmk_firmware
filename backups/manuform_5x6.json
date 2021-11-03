@@ -54,7 +54,7 @@
       "KC_COMM",
       "KC_DOT",
       "KC_SLSH",
-      "KC_BSLS",
+      "RCTL_T(KC_BSLS)",
       "KC_LBRC",
       "KC_RBRC",
       "KC_MINS",
