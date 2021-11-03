@@ -7,5 +7,5 @@ mv /mnt/c/Users/bbraga/Downloads/billybraga.json ~/dev/thirdparty/qmk/qmk_firmwa
 git add .
 git commit -m updateBackup
 cd ~/dev/thirdparty/qmk/qmk_firmware/keyboards/handwired/dactyl_manuform/5x6/keymaps/retro
-qmk json2c ~/dev/thirdparty/qmk/qmk_firmware/backups/manuform_5x6.json> keymap.c
-qmk compile -j16
+qmk json2c ~/dev/thirdparty/qmk/qmk_firmware/backups/manuform_5x6.json > keymap.c
+qmk compile -j16 & git push

@@ -60,7 +60,7 @@
       "KC_MINS",
       "KC_EQL",
       "MO(2)",
-      "KC_ENT",
+      "LCTL_T(KC_ENT)",
       "RCTL_T(KC_SPC)",
       "MO(1)",
       "KC_LCTL",
