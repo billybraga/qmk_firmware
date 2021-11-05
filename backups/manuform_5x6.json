@@ -75,7 +75,7 @@
     [
       "KC_TILD",
       "KC_EXLM",
-      "KC_AT",
+      "RALT(KC_2)",
       "KC_HASH",
       "KC_DLR",
       "KC_PERC",
