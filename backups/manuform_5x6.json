@@ -61,16 +61,16 @@
       "KC_EQL",
       "MO(2)",
       "LCTL_T(KC_ENT)",
-      "LT(7,KC_SPC)",
+      "KC_SPC",
       "MO(1)",
       "MO(5)",
       "KC_LALT",
       "KC_BSPC",
-      "KC_RCTL",
+      "MO(7)",
       "KC_SPC",
       "KC_LGUI",
       "KC_LGUI",
-      "KC_ESC"
+      "KC_RCTL"
     ],
     [
       "KC_TILD",
@@ -528,7 +528,7 @@
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "KC_NO",
+      "KC_TRNS",
       "KC_NO",
       "KC_NO",
       "KC_NO",
