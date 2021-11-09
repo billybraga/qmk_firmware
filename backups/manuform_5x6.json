@@ -108,7 +108,7 @@
       "KC_DOWN",
       "KC_RGHT",
       "KC_DEL",
-      "ANY(ç)",
+      "ANY(KC_BSLS)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_WH_U",
