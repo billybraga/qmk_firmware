@@ -178,7 +178,7 @@
       "LCTL(KC_F12)",
       "LCTL(KC_BSPC)",
       "LSFT(KC_DEL)",
-      "KC_NO",
+      "LCA(KC_ENT)",
       "KC_SPC",
       "LCTL(KC_F5)",
       "KC_TRNS",
