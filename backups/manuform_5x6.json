@@ -69,8 +69,8 @@
       "KC_RALT",
       "KC_LGUI",
       "MO(8)",
-      "KC_LGUI",
-      "MO(7)"
+      "MO(7)",
+      "KC_RGUI"
     ],
     [
       "KC_TILD",
@@ -531,7 +531,7 @@
       "KC_TRNS",
       "KC_NO",
       "KC_NO",
-      "KC_NO",
+      "KC_TRNS",
       "KC_TRNS"
     ],
     [
