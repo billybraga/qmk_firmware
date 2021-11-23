@@ -566,7 +566,7 @@
       "KC_L",
       "KC_SCLN",
       "KC_NO",
-      "RSG(KC_LEFT)",
+      "ANY(LCG(KC_LEFT))",
       "KC_NO",
       "RSG(KC_RGHT)",
       "KC_NO",
