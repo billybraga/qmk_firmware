@@ -141,7 +141,7 @@
     [
       "KC_PSCR",
       "KC_MRWD",
-      "KC_MFFD",
+      "LALT(KC_N)",
       "KC_MPLY",
       "KC_VOLD",
       "KC_VOLU",
