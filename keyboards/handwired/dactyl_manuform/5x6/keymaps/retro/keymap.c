@@ -19,6 +19,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         } else {
             // when keycode MACRO_ARROW is released
         }
+        break;
     case KC_F18:
         if (record->event.pressed) {
             // when keycode MACRO_ARROW is pressed
