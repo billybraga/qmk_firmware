@@ -2,7 +2,7 @@
 #include "retro_keymap.c"
 
 enum custom_keycodes {
-    MACRO_ARROW = RCS(KC_F17),
+    MACRO_ARROW = KC_F17,
 };
 
 bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
