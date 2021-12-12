@@ -201,7 +201,7 @@
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
-      "KC_TRNS",
+      "TT(9)",
       "KC_TRNS"
     ],
     [
@@ -259,7 +259,7 @@
       "KC_F17",
       "KC_TRNS",
       "KC_TRNS",
-      "TT(9)",
+      "KC_TRNS",
       "KC_TRNS",
       "KC_NO",
       "KC_NO",
@@ -663,8 +663,8 @@
       "KC_RGHT",
       "KC_NO",
       "KC_NO",
-      "KC_NO",
-      "KC_NO"
+      "KC_TRNS",
+      "KC_DOWN"
     ]
   ],
   "author": ""
