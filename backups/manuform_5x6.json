@@ -76,7 +76,7 @@
       "KC_TILD",
       "KC_EXLM",
       "RALT(KC_2)",
-      "ANY(UC(0x2708))",
+      "KC_HASH",
       "KC_DLR",
       "KC_PERC",
       "LGUI(KC_2)",
