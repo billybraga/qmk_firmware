@@ -60,7 +60,7 @@
       "KC_NUHS",
       "KC_EQL",
       "MO(2)",
-      "LT(4,KC_ENT)",
+      "LCTL_T(KC_ENT)",
       "KC_SPC",
       "MO(1)",
       "MO(5)",
