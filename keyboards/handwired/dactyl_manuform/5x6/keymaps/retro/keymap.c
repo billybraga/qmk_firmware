@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "retro_keymap.c"
-#include "sendstring_canadian_multilingual.h
+#include "sendstring_canadian_multilingual.h"
 
 bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -16,9 +16,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_F17:
         if (record->event.pressed) {
             // when keycode MACRO_ARROW is pressed
-            SEND_STRING(" =");
-            SEND_STRING(SS_RALT("."));
-            SEND_STRING(" ");
+            SEND_STRING(" => ");
         } else {
             // when keycode MACRO_ARROW is released
         }
@@ -26,9 +24,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_F18:
         if (record->event.pressed) {
             // when keycode MACRO_ARROW is pressed
-            SEND_STRING("x =");
-            SEND_STRING(SS_RALT("."));
-            SEND_STRING(" ");
+            SEND_STRING("x => ");
         } else {
             // when keycode MACRO_ARROW is released
         }
