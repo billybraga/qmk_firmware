@@ -139,7 +139,7 @@
       "KC_TRNS"
     ],
     [
-      "KC_GRV",
+      "LSFT(undefined)",
       "RALT(KC_LBRC)",
       "KC_AT",
       "KC_HASH",
@@ -151,7 +151,7 @@
       "LGUI(KC_5)",
       "LGUI(KC_6)",
       "LGUI(KC_7)",
-      "LSFT(KC_GRV)",
+      "KC_GRV",
       "LSFT(KC_DOT)",
       "KC_BTN2",
       "KC_MS_U",
