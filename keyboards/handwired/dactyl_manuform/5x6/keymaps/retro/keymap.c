@@ -23,12 +23,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING("x => ");
             }
             break;
-        case KC_F19:
-            if (record->event.pressed) {
-                SEND_STRING("`");
-                SEND_STRING("`");
-            }
-            break;
         }
     return true;
 };
