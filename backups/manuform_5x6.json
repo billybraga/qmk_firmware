@@ -259,7 +259,7 @@
       "KC_PDOT",
       "KC_TRNS",
       "MO(7)",
-      "RCS(KC_SPC)",
+      "ANY(LCTL(LSFT(KC_SPC)))",
       "MO(4)",
       "KC_TRNS",
       "KC_TRNS",
