@@ -16,6 +16,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             // when keycode MACRO_ARROW is pressed
             SEND_STRING(" => ");
+            SEND_STRING(SS_RALT("."));
+            SEND_STRING(" ");
         } else {
             // when keycode MACRO_ARROW is released
         }
@@ -24,6 +26,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             // when keycode MACRO_ARROW is pressed
             SEND_STRING("x => ");
+            SEND_STRING(SS_RALT("."));
+            SEND_STRING(" ");
         } else {
             // when keycode MACRO_ARROW is released
         }
