@@ -33,6 +33,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 send_unicode_string("~");
             }
             break;
+        case KC_F21:
+            if (record->event.pressed) {
+                send_unicode_string("^");
+            }
+            break;
         }
     return true;
 };
