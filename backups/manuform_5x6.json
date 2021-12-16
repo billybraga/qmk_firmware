@@ -140,7 +140,7 @@
     ],
     [
       "KC_GRV",
-      "KC_EXLM",
+      "RALT(KC_LBRC)",
       "KC_AT",
       "KC_HASH",
       "KC_DLR",
