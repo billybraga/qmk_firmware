@@ -13,21 +13,22 @@ bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-    case KC_F17:
-        if (record->event.pressed) {
-            SEND_STRING(" => ");
+        case KC_F17:
+            if (record->event.pressed) {
+                SEND_STRING(" => ");
+            }
+            break;
+        case KC_F18:
+            if (record->event.pressed) {
+                SEND_STRING("x => ");
+            }
+            break;
+        case KC_F19:
+            if (record->event.pressed) {
+                SEND_STRING("`");
+                SEND_STRING("`");
+            }
+            break;
         }
-        break;
-    case KC_F18:
-        if (record->event.pressed) {
-            SEND_STRING("x => ");
-        }
-        break;
-    case KC_F19:
-        if (record->event.pressed) {
-            SEND_STRING("`");
-        }
-        break;
-    }
     return true;
 };
