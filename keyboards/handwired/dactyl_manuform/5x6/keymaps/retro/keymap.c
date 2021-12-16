@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "retro_keymap.c"
+#include "sendstring_canadian_multilingual.h
 
 bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
