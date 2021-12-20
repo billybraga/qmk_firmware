@@ -37,6 +37,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 send_unicode_string("^");
             }
+        case KC_F22:
+            if (record->event.pressed) {
+                send_unicode_string("qu'on ");
+            }
+        case KC_F23:
+            if (record->event.pressed) {
+                send_unicode_string("que ");
+            }
+        case KC_F24:
+            if (record->event.pressed) {
+                send_unicode_string("est-ce ");
+            }
             break;
         }
     return true;
