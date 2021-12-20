@@ -2,14 +2,14 @@
 #include "retro_keymap.c"
 #include "sendstring_canadian_multilingual.h"
 
-bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case LCTL_T(KC_NUBS):
-            return true;
-        default:
-             return true;
-    }
-}
+// bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
+//     switch (keycode) {
+//         case LCTL_T(KC_NUBS):
+//             return true;
+//         default:
+//              return true;
+//     }
+// }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
