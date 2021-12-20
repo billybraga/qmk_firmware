@@ -13,6 +13,26 @@ bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case KC_F13:
+            if (record->event.pressed) {
+                send_unicode_string("ë");
+            }
+            break;
+        case KC_F14:
+            if (record->event.pressed) {
+                send_unicode_string("ù");
+            }
+            break;
+        case KC_F15:
+            if (record->event.pressed) {
+                send_unicode_string("Ë");
+            }
+            break;
+        case KC_F16:
+            if (record->event.pressed) {
+                send_unicode_string("Ù");
+            }
+            break;
         case KC_F17:
             if (record->event.pressed) {
                 SEND_STRING(" => ");
