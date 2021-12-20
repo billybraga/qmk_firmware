@@ -5,7 +5,7 @@
 bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LCTL_T(KC_NUBS):
-            return false;
+            return true;
         default:
              return true;
     }
