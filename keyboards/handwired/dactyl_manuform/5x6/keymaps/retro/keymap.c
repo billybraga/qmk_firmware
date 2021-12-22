@@ -18,6 +18,13 @@ enum retro_keys {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case LT(5, KC_ENT):
+            if (record->event.pressed) {
+                register_code(KC_LCTL);
+            } else {
+                unregister_code(KC_LCTL);
+            }
+            break;
         case MO(11):
             if (record->event.pressed) {
                 register_code(KC_LSFT);
