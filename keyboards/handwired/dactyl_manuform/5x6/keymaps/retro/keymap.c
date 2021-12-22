@@ -5,6 +5,11 @@ enum retro_keys {
   U_GRAVE,
   E_TREM_UPPER,
   U_GRAVE_UPPER,
+  ARR,
+  L_ARR,
+  TICK_KEY,
+  TILDE,
+  HAT,
   SEM_COL
 };
 
@@ -30,42 +35,42 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 send_unicode_string("ë");
             }
             break;
-        case KC_F14:
+        case U_GRAVE:
             if (record->event.pressed) {
                 send_unicode_string("ù");
             }
             break;
-        case KC_F15:
+        case E_TREM_UPPER:
             if (record->event.pressed) {
                 send_unicode_string("Ë");
             }
             break;
-        case KC_F16:
+        case U_GRAVE_UPPER:
             if (record->event.pressed) {
                 send_unicode_string("Ù");
             }
             break;
-        case KC_F17:
+        case ARR:
             if (record->event.pressed) {
                 send_string(" => ");
             }
             break;
-        case KC_F18:
+        case L_ARR:
             if (record->event.pressed) {
                 send_string("x => ");
             }
             break;
-        case KC_F19:
+        case TICK_KEY:
             if (record->event.pressed) {
                 send_unicode_string("`");
             }
             break;
-        case KC_F20:
+        case TILDE:
             if (record->event.pressed) {
                 send_unicode_string("~");
             }
             break;
-        case KC_F21:
+        case HAT:
             if (record->event.pressed) {
                 send_unicode_string("^");
             }
