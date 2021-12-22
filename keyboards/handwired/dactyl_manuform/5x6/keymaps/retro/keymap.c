@@ -10,7 +10,8 @@ enum retro_keys {
   TICK_KEY,
   TILDE,
   HAT,
-  SEM_COL
+  SEM_COL,
+  CTL_ENT
 };
 
 #include "retro_keymap.c"
@@ -18,10 +19,12 @@ enum retro_keys {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(5, KC_ENT):
+        case CTL_ENT:
             if (record->event.pressed) {
                 register_code(KC_LCTL);
+                layer_on(5);
             } else {
+                layer_off(5);
                 unregister_code(KC_LCTL);
             }
             break;
