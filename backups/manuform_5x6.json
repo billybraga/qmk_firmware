@@ -762,7 +762,7 @@
       "RSFT(KC_U)",
       "RSFT(KC_I)",
       "RSFT(KC_E)",
-      "KC_SCLN",
+      "ANY(SEM_COL)",
       "RSFT(KC_C)",
       "RSFT(KC_T)",
       "RSFT(KC_S)",

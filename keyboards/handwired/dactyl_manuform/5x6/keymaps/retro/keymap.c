@@ -4,7 +4,8 @@ enum retro_keys {
   E_TREM = SAFE_RANGE,
   U_GRAVE,
   E_TREM_UPPER,
-  U_GRAVE_UPPER
+  U_GRAVE_UPPER,
+  SEM_COL
 };
 
 #include "retro_keymap.c"
@@ -17,6 +18,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_LSFT);
             } else {
                 unregister_code(KC_LSFT);
+            }
+            break;
+        case SEM_COL:
+            if (record->event.pressed) {
+                send_string(";");
             }
             break;
         case E_TREM:
@@ -41,12 +47,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case KC_F17:
             if (record->event.pressed) {
-                SEND_STRING(" => ");
+                send_string(" => ");
             }
             break;
         case KC_F18:
             if (record->event.pressed) {
-                SEND_STRING("x => ");
+                send_string("x => ");
             }
             break;
         case KC_F19:
@@ -56,7 +62,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case KC_F20:
             if (record->event.pressed) {
-                send_unicode_string("~");
+                send_string("~");
             }
             break;
         case KC_F21:
@@ -66,17 +72,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case KC_F22:
             if (record->event.pressed) {
-                send_unicode_string("qu'on ");
+                send_string("qu'on ");
             }
             break;
         case KC_F23:
             if (record->event.pressed) {
-                send_unicode_string("que ");
+                send_string("que ");
             }
             break;
         case KC_F24:
             if (record->event.pressed) {
-                send_unicode_string("est-ce ");
+                send_string("est-ce ");
             }
             break;
         }
