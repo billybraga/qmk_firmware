@@ -140,7 +140,7 @@
     ],
     [
       "KC_F20",
-      "RALT(KC_GRV)",
+      "KC_F19",
       "KC_AT",
       "KC_HASH",
       "KC_DLR",
@@ -163,7 +163,7 @@
       "KC_PGDN",
       "KC_NO",
       "KC_RBRC",
-      "KC_F19",
+      "KC_LSFT",
       "LSFT(KC_DOT)",
       "KC_MS_L",
       "KC_MS_D",
