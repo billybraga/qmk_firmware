@@ -1,10 +1,18 @@
 #include QMK_KEYBOARD_H
+
+enum retro_keys {
+  E_TREM = SAFE_RANGE,
+  U_GRAVE,
+  E_TREM_UPPER,
+  U_GRAVE_UPPER
+};
+
 #include "retro_keymap.c"
 #include "sendstring_canadian_multilingual.h"
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case KC_F13:
+        case E_TREM:
             if (record->event.pressed) {
                 send_unicode_string("ë");
             }
