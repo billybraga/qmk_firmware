@@ -262,7 +262,7 @@
       "ANY(LCTL(LSFT(KC_SPC)))",
       "MO(4)",
       "DF(0)",
-      "TG(13)",
+      "DF(13)",
       "KC_BSPC",
       "KC_TRNS",
       "DF(10)",
