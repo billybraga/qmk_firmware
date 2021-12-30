@@ -5,6 +5,7 @@ enum retro_keys {
   U_GRAVE,
   E_TREM_UPPER,
   U_GRAVE_UPPER,
+  E_ACUTE,
   ARR,
   L_ARR,
   TICK_KEY,
@@ -38,6 +39,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case SEM_COL:
             if (record->event.pressed) {
                 send_unicode_string(";");
+            }
+            break;
+        case E_ACUTE:
+            if (record->event.pressed) {
+                send_string("é");
             }
             break;
         case E_TREM:
