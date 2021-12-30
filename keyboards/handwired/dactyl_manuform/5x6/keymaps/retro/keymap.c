@@ -16,7 +16,7 @@ enum retro_keys {
 };
 
 #include "retro_keymap.c"
-#include "sendstring_canadian_multilingual.h"
+#include "sendstring_french.h"
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -38,7 +38,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case SEM_COL:
             if (record->event.pressed) {
-                send_unicode_string(";");
+                send_string(";");
             }
             break;
         case E_ACUTE:
@@ -49,8 +49,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
         case E_TREM:
+//             if (record->event.pressed) {
+//                 send_unicode_string("ë");
+//             }
             if (record->event.pressed) {
-                send_unicode_string("ë");
+                register_code(KC_LSFT);
+                register_code(KC_LBRC);
+            } else {
+                unregister_code(KC_LBRC);
+                unregister_code(KC_LSFT);
             }
             break;
         case U_GRAVE:
@@ -89,8 +96,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
         case HAT:
+//             if (record->event.pressed) {
+//                 send_unicode_string("^");
+//             }
             if (record->event.pressed) {
-                send_unicode_string("^");
+                register_code(KC_LBRC);
+            } else {
+                unregister_code(KC_LBRC);
             }
             break;
         case KC_F22:
