@@ -18,10 +18,10 @@ enum retro_keys {
 
 void no_sft(keyrecord_t *record, uint16_t code1, uint16_t code2) {
     bool is_sft = get_mods() & MOD_BIT(KC_LSFT);
+    if (is_sft) {
+        unregister_code(KC_LSFT);
+    }
     if (record->event.pressed) {
-        if (is_sft) {
-            unregister_code(KC_LSFT);
-        }
         register_code(code1);
         if (code2 != 0) {
             register_code(code2);
@@ -31,9 +31,9 @@ void no_sft(keyrecord_t *record, uint16_t code1, uint16_t code2) {
         if (code2 != 0) {
             unregister_code(code2);
         }
-        if (is_sft) {
-            register_code(KC_LSFT);
-        }
+    }
+    if (is_sft) {
+        register_code(KC_LSFT);
     }
 }
 
