@@ -79,6 +79,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
         case MO(11):
+        case LT(11, KC_W):
             if (record->event.pressed) {
                 register_code(KC_LSFT);
             } else {
