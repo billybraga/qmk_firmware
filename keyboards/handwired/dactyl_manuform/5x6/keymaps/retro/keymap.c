@@ -86,8 +86,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
         case TICK_KEY:
-            if (record->event.pressed) {
-                send_unicode_string("`");
+//             if (record->event.pressed) {
+//                 send_unicode_string("`");
+//             }
+            if (!record->event.pressed) {
+                register_code(KC_RALT);
+                register_code(KC_LBRC);
+                unregister_code(KC_LBRC);
+                unregister_code(KC_RALT);
             }
             break;
         case TILDE:
