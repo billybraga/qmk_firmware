@@ -43,9 +43,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case E_ACUTE:
             if (record->event.pressed) {
-                register_code(KC_SLSH);
+                register_code(KC_2);
             } else {
-                unregister_code(KC_SLSH);
+                unregister_code(KC_2);
             }
             break;
         case E_TREM:
