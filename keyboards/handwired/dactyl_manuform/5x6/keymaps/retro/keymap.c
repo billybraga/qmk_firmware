@@ -16,14 +16,33 @@ enum retro_keys {
 #include "retro_keymap.c"
 #include "sendstring_canadian_multilingual.h"
 
-void alt_gr(keyrecord_t *record, uint16_t new_code) {
+void no_sft(keyrecord_t *record, uint16_t code1, uint16_t code2) {
+    bool is_sft = get_mods() & MOD_BIT(KC_LSFT);
     if (record->event.pressed) {
-        register_code(KC_RALT);
-        register_code(new_code);
+        if (is_sft) {
+            unregister_code(KC_LSFT);
+        }
+        register_code(code1);
+        if (code2 != 0) {
+            register_code(code2);
+        }
     } else {
-        unregister_code(new_code);
-        unregister_code(KC_RALT);
+        unregister_code(code1);
+        if (code2 != 0) {
+            unregister_code(code2);
+        }
+        if (is_sft) {
+            register_code(KC_LSFT);
+        }
     }
+}
+
+void no_sft1(keyrecord_t *record, uint16_t code1) {
+    no_sft(record, code1, 0);
+}
+
+void alt_gr(keyrecord_t *record, uint16_t new_code) {
+    no_sft(record, KC_RALT, new_code);
 }
 
 void lsft(keyrecord_t *record, uint16_t new_code) {
@@ -36,12 +55,16 @@ void lsft(keyrecord_t *record, uint16_t new_code) {
     }
 }
 
-void alt_gr_dead(keyrecord_t *record, uint16_t new_code) {
+void alt_gr_then(keyrecord_t *record, uint16_t new_code, uint16_t after_code) {
     alt_gr(record, new_code);
     if (!record->event.pressed) {
-        register_code(KC_SPC);
-        unregister_code(KC_SPC);
+        register_code(after_code);
+        unregister_code(after_code);
     }
+}
+
+void alt_gr_dead(keyrecord_t *record, uint16_t new_code) {
+    alt_gr_then(record, new_code, KC_SPC);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -63,16 +86,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
         case SEM_COL:
-            if (record->event.pressed) {
-                bool is_sft = get_mods() & MOD_BIT(KC_LSFT);
-                if (is_sft) {
-                    unregister_code(KC_LSFT);
-                }
-                send_string(";");
-                if (is_sft) {
-                    register_code(KC_LSFT);
-                }
-            }
+            no_sft1(record, KC_SCLN);
             break;
         case E_ACUTE:
             if (record->event.pressed) {
@@ -85,11 +99,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             lsft(record, KC_LBRC);
             break;
         case U_GRAVE:
-            alt_gr(record, KC_LBRC);
-            if (!record->event.pressed) {
-                register_code(KC_U);
-                unregister_code(KC_U);
-            }
+            alt_gr_then(record, KC_LBRC, KC_U);
             break;
         case ARR:
             if (record->event.pressed) {
