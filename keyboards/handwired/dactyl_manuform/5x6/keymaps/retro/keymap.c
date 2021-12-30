@@ -20,8 +20,19 @@ void alt_gr(keyrecord_t *record, uint16_t new_code) {
     if (record->event.pressed) {
         register_code(KC_RALT);
         register_code(new_code);
+    } else {
         unregister_code(new_code);
         unregister_code(KC_RALT);
+    }
+}
+
+void lsft(keyrecord_t *record, uint16_t new_code) {
+    if (record->event.pressed) {
+        register_code(KC_LSFT);
+        register_code(new_code);
+    } else {
+        unregister_code(new_code);
+        unregister_code(KC_LSFT);
     }
 }
 
@@ -52,8 +63,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
         case SEM_COL:
-            if (!record->event.pressed) {
+            if (record->event.pressed) {
+                bool is_sft = get_mods() & MOD_BIT(KC_LSFT);
+                if (is_sft) {
+                    unregister_code(KC_LSFT);
+                }
                 send_string(";");
+                if (is_sft) {
+                    register_code(KC_LSFT);
+                }
             }
             break;
         case E_ACUTE:
@@ -64,20 +82,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
         case E_TREM:
-//             if (record->event.pressed) {
-//                 send_unicode_string("ë");
-//             }
-            if (record->event.pressed) {
-                register_code(KC_LSFT);
-                register_code(KC_LBRC);
-            } else {
-                unregister_code(KC_LBRC);
-                unregister_code(KC_LSFT);
-            }
+            lsft(record, KC_LBRC);
             break;
         case U_GRAVE:
+            alt_gr(record, KC_LBRC);
             if (record->event.pressed) {
-                send_unicode_string("ù");
+                register_code(KC_U);
+            } else {
+                unregister_code(KC_U);
             }
             break;
         case ARR:
