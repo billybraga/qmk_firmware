@@ -16,7 +16,24 @@ enum retro_keys {
 };
 
 #include "retro_keymap.c"
-#include "sendstring_french.h"
+#include "sendstring_canadian_multilingual.h"
+
+void alt_gr(keyrecord_t *record, uint16_t new_code) {
+    if (record->event.pressed) {
+        register_code(KC_RALT);
+        register_code(new_code);
+        unregister_code(new_code);
+        unregister_code(KC_RALT);
+    }
+}
+
+void alt_gr_dead(keyrecord_t *record, uint16_t new_code) {
+    alt_gr(record, new_code);
+    if (!record->event.pressed) {
+        register_code(KC_SPC);
+        unregister_code(KC_SPC);
+    }
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -86,27 +103,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
         case TICK_KEY:
+            alt_gr_dead(record, KC_LBRC);
+            break;
+        case TILDE:
 //             if (record->event.pressed) {
-//                 send_unicode_string("`");
+//                 send_unicode_string("~");
 //             }
-            if (!record->event.pressed) {
+            if (record->event.pressed) {
                 register_code(KC_RALT);
-                register_code(KC_LBRC);
-                unregister_code(KC_LBRC);
+                register_code(KC_RBRC);
+                unregister_code(KC_RBRC);
                 unregister_code(KC_RALT);
+            } else {
                 register_code(KC_SPC);
                 unregister_code(KC_SPC);
             }
             break;
-        case TILDE:
-            if (record->event.pressed) {
-                send_unicode_string("~");
-            }
-            break;
         case HAT:
-//             if (record->event.pressed) {
-//                 send_unicode_string("^");
-//             }
             if (record->event.pressed) {
                 register_code(KC_LBRC);
             } else {
