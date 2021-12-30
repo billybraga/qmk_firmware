@@ -3,8 +3,6 @@
 enum retro_keys {
   E_TREM = SAFE_RANGE,
   U_GRAVE,
-  E_TREM_UPPER,
-  U_GRAVE_UPPER,
   E_ACUTE,
   ARR,
   L_ARR,
@@ -54,7 +52,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
         case SEM_COL:
-            if (record->event.pressed) {
+            if (!record->event.pressed) {
                 send_string(";");
             }
             break;
@@ -82,16 +80,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 send_unicode_string("ù");
             }
             break;
-        case E_TREM_UPPER:
-            if (record->event.pressed) {
-                send_unicode_string("Ë");
-            }
-            break;
-        case U_GRAVE_UPPER:
-            if (record->event.pressed) {
-                send_unicode_string("Ù");
-            }
-            break;
         case ARR:
             if (record->event.pressed) {
                 send_string(" => ");
@@ -106,18 +94,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             alt_gr_dead(record, KC_LBRC);
             break;
         case TILDE:
-//             if (record->event.pressed) {
-//                 send_unicode_string("~");
-//             }
-            if (record->event.pressed) {
-                register_code(KC_RALT);
-                register_code(KC_RBRC);
-                unregister_code(KC_RBRC);
-                unregister_code(KC_RALT);
-            } else {
-                register_code(KC_SPC);
-                unregister_code(KC_SPC);
-            }
+            alt_gr_dead(record, KC_RBRC);
             break;
         case HAT:
             if (record->event.pressed) {
