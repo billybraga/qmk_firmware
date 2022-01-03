@@ -109,7 +109,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case L_ARR:
             if (record->event.pressed) {
-                send_string("x => x");
+                send_string("x => x.");
             }
             break;
         case TICK_KEY:
