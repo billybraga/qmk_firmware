@@ -10,7 +10,8 @@ enum retro_keys {
   TILDE,
   HAT,
   SEM_COL,
-  CTL_ENT
+  CTL_ENT,
+  PIPE
 };
 
 #include "retro_keymap.c"
@@ -124,6 +125,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 unregister_code(KC_LBRC);
             }
+            break;
+        case PIPE:
+            alt_gr(record, KC_GRV);
             break;
         case KC_F22:
             if (record->event.pressed) {
