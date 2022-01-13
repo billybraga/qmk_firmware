@@ -779,7 +779,7 @@
       "RSFT(KC_Q)",
       "RSFT(KC_G)",
       "RSFT(KC_H)",
-      "RSFT(KC_F)",
+      "KC_TRNS",
       "LSFT(KC_W)",
       "ANY(E_TREM)",
       "ANY(U_GRAVE)",
