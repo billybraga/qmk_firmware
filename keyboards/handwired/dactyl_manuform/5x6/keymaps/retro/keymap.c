@@ -4,8 +4,8 @@ enum retro_keys {
   E_TREM = SAFE_RANGE,
   U_GRAVE,
   E_ACUTE,
-  ARR,
-  L_ARR,
+  L_ARR1,
+  L_ARR2,
   TICK_KEY,
   TILDE,
   HAT,
@@ -103,14 +103,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case U_GRAVE:
             alt_gr_then(record, KC_LBRC, KC_U);
             break;
-        case ARR:
-            if (record->event.pressed) {
-                send_string(" => ");
-            }
-            break;
-        case L_ARR:
+        case L_ARR1:
             if (record->event.pressed) {
                 send_string("x => x.");
+            }
+            break;
+        case L_ARR2:
+            if (record->event.pressed) {
+                send_string("() => ");
             }
             break;
         case TICK_KEY:
