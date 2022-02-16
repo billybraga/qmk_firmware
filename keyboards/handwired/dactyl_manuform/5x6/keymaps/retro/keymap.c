@@ -182,17 +182,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 update_tri_layer(_R_THUMB, _L_THUMB, _THUMBS);
             } else {
                 layer_off(_R_THUMB);
-                update_tri_layer(_R_THUMB, _L_THUMB, (int) _THUMBS);
+                update_tri_layer(_R_THUMB, _L_THUMB, _THUMBS);
             }
             return false;
             break;
         case L_THUMB:
             if (record->event.pressed) {
                 layer_on(_L_THUMB);
-                update_tri_layer(_R_THUMB, _L_THUMB, (int) _THUMBS);
+                update_tri_layer(_R_THUMB, _L_THUMB, _THUMBS);
             } else {
                 layer_off(_L_THUMB);
-                update_tri_layer(_R_THUMB, _L_THUMB, (int) _THUMBS);
+                update_tri_layer(_R_THUMB, _L_THUMB,  _THUMBS);
             }
             return false;
             break;
