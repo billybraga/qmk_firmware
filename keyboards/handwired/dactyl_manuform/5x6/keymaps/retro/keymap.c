@@ -1,5 +1,22 @@
 #include QMK_KEYBOARD_H
 
+enum retro_layers {
+  _QWERTY,
+  _BEPO,
+  _R_THUMB,
+  _L_THUMB,
+  _THUMBS,
+  _CTRL_HK,
+  _L_THUMB2,
+  _L2_THUMB,
+  _R2_THUMB,
+  _L_THUMB_R_KB,
+  _NOLAN,
+  _BEPO_SFT,
+  _BEPO_SFT_R_THUMB,
+  _ARROWS
+};
+
 enum retro_keys {
   E_TREM = SAFE_RANGE,
   U_GRAVE,
@@ -11,7 +28,20 @@ enum retro_keys {
   HAT,
   SEM_COL,
   CTL_ENT,
-  PIPE
+  PIPE,
+  QWERTY,
+  BEPO,
+  R_THUMB,
+  L_THUMB,
+  CTRL_HK,
+  L_THUMB2,
+  L2_THUMB,
+  R2_THUMB,
+  L_THUMB_R_KB,
+  NOLAN,
+  BEPO_SFT,
+  BEPO_SFT_R_THUMB,
+  ARROWS
 };
 
 #include "retro_keymap.c"
@@ -144,6 +174,28 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 send_string("est-ce ");
             }
             break;
-        }
+
+        // layers
+        case R_THUMB:
+            if (record->event.pressed) {
+                layer_on(_R_THUMB);
+                update_tri_layer(_R_THUMB, _L_THUMB, (int) _THUMBS);
+            } else {
+                layer_off(_R_THUMB);
+                update_tri_layer(_R_THUMB, _L_THUMB, (int) _THUMBS);
+            }
+            return false;
+            break;
+        case L_THUMB:
+            if (record->event.pressed) {
+                layer_on(_L_THUMB);
+                update_tri_layer(_R_THUMB, _L_THUMB, (int) _THUMBS);
+            } else {
+                layer_off(_L_THUMB);
+                update_tri_layer(_R_THUMB, _L_THUMB, (int) _THUMBS);
+            }
+            return false;
+            break;
+    }
     return true;
 };
