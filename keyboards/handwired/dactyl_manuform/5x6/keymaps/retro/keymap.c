@@ -192,7 +192,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 update_tri_layer(_R_THUMB, _L_THUMB, _THUMBS);
             } else {
                 layer_off(_L_THUMB);
-                update_tri_layer(_R_THUMB, _L_THUMB,  _THUMBS);
+                update_tri_layer(_R_THUMB, _L_THUMB, _THUMBS);
             }
             return false;
             break;
