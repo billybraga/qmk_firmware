@@ -100,13 +100,13 @@ void alt_gr_dead(keyrecord_t *record, uint16_t new_code) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(5, KC_ENT):
-            if (record->event.pressed) {
-                register_code(KC_LCTL);
-            } else {
-                unregister_code(KC_LCTL);
-            }
-            break;
+//         case LT(5, KC_ENT):
+//             if (record->event.pressed) {
+//                 register_code(KC_LCTL);
+//             } else {
+//                 unregister_code(KC_LCTL);
+//             }
+//             break;
         case CTL_ENT:
             if (record->event.pressed) {
                 register_code(KC_LCTL);
