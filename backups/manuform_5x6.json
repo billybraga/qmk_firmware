@@ -337,7 +337,7 @@
       "KC_NO"
     ],
     [
-      "LCTL(KC_DEL)",
+      "LALT(KC_GRV)",
       "LCTL(KC_1)",
       "LCTL(KC_2)",
       "LCTL(KC_3)",
