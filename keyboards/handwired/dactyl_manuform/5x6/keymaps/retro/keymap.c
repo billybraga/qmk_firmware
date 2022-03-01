@@ -138,7 +138,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     switch (keycode) {
         case LALT_TICK:
-            no_sft(record, KC_LALT, 0xC0);
+            no_ctrl(record, KC_LALT, 0xC0);
             return false;
         case CTL_ENT: // 5
             if (record->event.pressed) {
