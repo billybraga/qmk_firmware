@@ -40,6 +40,7 @@ enum retro_keys {
   NOLAN,
   BEPO_SFT,
   BEPO_SFT_R_THUMB,
+  SFT_ARROWS,
   ARROWS
 };
 
@@ -100,6 +101,7 @@ void alt_gr_dead(keyrecord_t *record, uint16_t new_code) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static uint16_t CTL_ENT_timer;
     static bool CTL_ENT_is_last_pressed;
+    static bool CTL_ENT_registered_ctl;
     static uint16_t BEPO_SFT_R_THUMB_timer;
     static bool BEPO_SFT_R_THUMB_is_last_pressed;
 
@@ -111,11 +113,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case CTL_ENT: // 5
             if (record->event.pressed) {
+                // We registered the ctrl
+                CTL_ENT_registered_ctl = get_mods() & MOD_BIT(KC_LCTL);
                 CTL_ENT_timer = timer_read();
                 register_code(KC_LCTL);
                 layer_on(_CTL_ENT);
             } else {
-                unregister_code(KC_LCTL);
+                if (CTL_ENT_registered_ctl) {
+                    // Only unregister if we are the one that registered it
+                    unregister_code(KC_LCTL);
+                }
                 layer_off(_CTL_ENT);
 
                 if (CTL_ENT_is_last_pressed && timer_elapsed(CTL_ENT_timer) < TAPPING_TERM) {
