@@ -337,7 +337,7 @@
       "KC_NO"
     ],
     [
-      "LALT(KC_GRV)",
+      "ANY(LALT_TICK)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",

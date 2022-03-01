@@ -41,11 +41,37 @@ enum retro_keys {
   BEPO_SFT,
   BEPO_SFT_R_THUMB,
   SFT_ARROWS,
-  ARROWS
+  ARROWS,
+  LALT_TICK
 };
 
 #include "retro_keymap.c"
 #include "sendstring_canadian_multilingual.h"
+
+void no_ctrl(keyrecord_t *record, uint16_t code1, uint16_t code2) {
+    bool is_ctrl = get_mods() & MOD_BIT(KC_LCTL);
+    if (is_ctrl) {
+        unregister_code(KC_LCTL);
+    }
+    if (record->event.pressed) {
+        register_code(code1);
+        if (code2 != 0) {
+            register_code(code2);
+        }
+    } else {
+        unregister_code(code1);
+        if (code2 != 0) {
+            unregister_code(code2);
+        }
+    }
+    if (is_ctrl) {
+        register_code(KC_LCTL);
+    }
+}
+
+void no_ctrl1(keyrecord_t *record, uint16_t code1) {
+    no_ctrl(record, code1, 0);
+}
 
 void no_sft(keyrecord_t *record, uint16_t code1, uint16_t code2) {
     bool is_sft = get_mods() & MOD_BIT(KC_LSFT);
@@ -111,6 +137,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     switch (keycode) {
+        case LALT_TICK:
+            no_sft(record, KC_LALT, 0xC0);
+            return false;
         case CTL_ENT: // 5
             if (record->event.pressed) {
                 // We registered the ctrl if it was not already
