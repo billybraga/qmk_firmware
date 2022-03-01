@@ -342,7 +342,7 @@
       "LCTL(KC_2)",
       "LCTL(KC_3)",
       "LCTL(KC_4)",
-      "LCTL(KC_5)",
+      "KC_TRNS",
       "LCTL(KC_6)",
       "LCTL(KC_7)",
       "LCTL(KC_8)",

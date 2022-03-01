@@ -101,7 +101,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static uint16_t CTL_ENT_timer;
 
     switch (keycode) {
-        case CTL_ENT:
+        case CTL_ENT: // 5
             if (record->event.pressed) {
                 CTL_ENT_timer = timer_read();
                 register_code(KC_LCTL);
