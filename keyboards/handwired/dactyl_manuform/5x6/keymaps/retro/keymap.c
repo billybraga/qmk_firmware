@@ -99,10 +99,14 @@ void alt_gr_dead(keyrecord_t *record, uint16_t new_code) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static uint16_t CTL_ENT_timer;
+    static bool CTL_ENT_is_last_pressed;
+
+    CTL_ENT_is_last_pressed = false;
 
     switch (keycode) {
         case CTL_ENT: // 5
             if (record->event.pressed) {
+                CTL_ENT_is_last_pressed = true;
                 CTL_ENT_timer = timer_read();
                 register_code(KC_LCTL);
                 layer_on(_CTL_ENT);
@@ -110,19 +114,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_LCTL);
                 layer_off(_CTL_ENT);
 
-                if (timer_elapsed(CTL_ENT_timer) < TAPPING_TERM) {
+                if (CTL_ENT_is_last_pressed && timer_elapsed(CTL_ENT_timer) < TAPPING_TERM) {
                     tap_code(KC_ENT);
                 }
             }
             return false;
-        case MO(11):
-//         case LT(11, KC_W):
+        case BEPO_SFT: // 2
             if (record->event.pressed) {
                 register_code(KC_LSFT);
+                layer_on(_BEPO_SFT);
             } else {
                 unregister_code(KC_LSFT);
+                layer_off(_BEPO_SFT);
             }
-            break;
+            return false;
         case SEM_COL:
             no_sft1(record, KC_SCLN);
             break;
