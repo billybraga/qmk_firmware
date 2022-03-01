@@ -101,12 +101,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static uint16_t CTL_ENT_timer;
     static bool CTL_ENT_is_last_pressed;
 
-    CTL_ENT_is_last_pressed = false;
+    CTL_ENT_is_last_pressed = keycode == CTL_ENT;
 
     switch (keycode) {
         case CTL_ENT: // 5
             if (record->event.pressed) {
-                CTL_ENT_is_last_pressed = true;
                 CTL_ENT_timer = timer_read();
                 register_code(KC_LCTL);
                 layer_on(_CTL_ENT);
