@@ -1,20 +1,20 @@
 #include QMK_KEYBOARD_H
 
 enum retro_layers {
-  _QWERTY,
-  _BEPO,
-  _R_THUMB,
-  _L_THUMB,
-  _THUMBS,
-  _CTRL_HK,
-  _L_THUMB2,
-  _L2_THUMB,
-  _R2_THUMB,
-  _L_THUMB_R_KB,
-  _NOLAN,
-  _BEPO_SFT,
-  _BEPO_SFT_R_THUMB,
-  _ARROWS
+  _QWERTY, // 0
+  _BEPO, // 1
+  _R_THUMB, // 2
+  _L_THUMB, // 3
+  _THUMBS, // 4
+  _CTL_ENT, // 5
+  _L_THUMB2, // 6
+  _L2_THUMB, // 7
+  _R2_THUMB, // 8
+  _L_THUMB_R_KB, // 9
+  _NOLAN, // 10
+  _BEPO_SFT, // 11
+  _BEPO_SFT_R_THUMB, // 12
+  _ARROWS // 13
 };
 
 enum retro_keys {
@@ -33,7 +33,6 @@ enum retro_keys {
   BEPO,
   R_THUMB,
   L_THUMB,
-  CTRL_HK,
   L_THUMB2,
   L2_THUMB,
   R2_THUMB,
@@ -99,23 +98,23 @@ void alt_gr_dead(keyrecord_t *record, uint16_t new_code) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    static uint16_t CTL_ENT_timer;
+
     switch (keycode) {
-//         case LT(5, KC_ENT):
-//             if (record->event.pressed) {
-//                 register_code(KC_LCTL);
-//             } else {
-//                 unregister_code(KC_LCTL);
-//             }
-//             break;
         case CTL_ENT:
             if (record->event.pressed) {
+                CTL_ENT_timer = timer_read();
                 register_code(KC_LCTL);
-                layer_on(5);
+                layer_on(_CTL_ENT);
             } else {
-                layer_off(5);
                 unregister_code(KC_LCTL);
+                layer_off(_CTL_ENT);
+
+                if (timer_elapsed(CTL_ENT_timer) < TAPPING_TERM) {
+                    tap_code(KC_ENT);
+                }
             }
-            break;
+            return false;
         case MO(11):
 //         case LT(11, KC_W):
             if (record->event.pressed) {
