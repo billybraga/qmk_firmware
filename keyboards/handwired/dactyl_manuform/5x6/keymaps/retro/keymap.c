@@ -113,8 +113,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case CTL_ENT: // 5
             if (record->event.pressed) {
-                // We registered the ctrl
-                CTL_ENT_registered_ctl = get_mods() & MOD_BIT(KC_LCTL);
+                // We registered the ctrl if it was not already
+                CTL_ENT_registered_ctl = !(get_mods() & MOD_BIT(KC_LCTL));
                 CTL_ENT_timer = timer_read();
                 register_code(KC_LCTL);
                 layer_on(_CTL_ENT);
