@@ -96,7 +96,7 @@
       "KC_D",
       "KC_L",
       "KC_J",
-      "LT(11,KC_Z)",
+      "ANY(BEPO_SFT_R_THUMB)",
       "ANY(BEPO_SFT)",
       "KC_A",
       "KC_U",
