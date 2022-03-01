@@ -13,7 +13,7 @@ enum retro_layers {
   _L_THUMB_R_KB, // 9
   _NOLAN, // 10
   _BEPO_SFT, // 11
-  _BEPO_SFT_R_THUMB, // 12
+  _SFT_ARROWS, // 12
   _ARROWS // 13
 };
 
@@ -136,10 +136,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 BEPO_SFT_R_THUMB_timer = timer_read();
                 register_code(KC_LSFT);
-                layer_on(_BEPO_SFT_R_THUMB);
+                layer_on(_BEPO_SFT);
             } else {
                 unregister_code(KC_LSFT);
-                layer_off(_BEPO_SFT_R_THUMB);
+                layer_off(_BEPO_SFT);
 
                 if (BEPO_SFT_R_THUMB_is_last_pressed && timer_elapsed(BEPO_SFT_R_THUMB_timer) < TAPPING_TERM) {
                     tap_code(KC_Z);
