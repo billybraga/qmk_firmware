@@ -205,7 +205,7 @@
       "KC_TRNS"
     ],
     [
-      "LALT(KC_GRV)",
+      "ANY(LALT_TICK)",
       "KC_MRWD",
       "LALT(KC_N)",
       "KC_MPLY",
