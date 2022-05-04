@@ -139,7 +139,7 @@
       "KC_TRNS"
     ],
     [
-      "KC_TRNS",
+      "ANY(PIPE)",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -175,7 +175,7 @@
       "KC_RGHT",
       "KC_END",
       "KC_RSFT",
-      "ANY(PIPE)",
+      "KC_TRNS",
       "ANY(TICK_KEY)",
       "KC_WH_U",
       "KC_MS_D",
