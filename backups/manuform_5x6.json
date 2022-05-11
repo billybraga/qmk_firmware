@@ -1,7 +1,6 @@
 {
   "version": 1,
-  "notes": "",
-  "documentation": "\"This file is a QMK Configurator export. You can import this at <https://config.qmk.fm>. It can also be used directly with QMK's source code.\n\nTo setup your QMK environment check out the tutorial: <https://docs.qmk.fm/#/newbs>\n\nYou can convert this file to a keymap.c using this command: `qmk json2c {keymap}`\n\nYou can compile this keymap using this command: `qmk compile {keymap}`\"\n",
+  "documentation": "This file is a QMK Configurator export. You can import this at <https://config.qmk.fm>. It can also be used directly with QMK's source code.\n\nTo setup your QMK environment check out the tutorial: <https://docs.qmk.fm/#/newbs>\n\nYou can convert this file to a keymap.c using this command: `qmk json2c {keymap}`\n\nYou can compile this keymap using this command: `qmk compile {keymap}`\n",
   "keyboard": "handwired/dactyl_manuform/5x6",
   "keymap": "billybraga",
   "layout": "LAYOUT_5x6",
@@ -615,9 +614,9 @@
       "KC_NO",
       "KC_LBRC",
       "KC_Y",
-      "KC_U",
-      "KC_I",
-      "KC_P",
+      "KC_P1",
+      "KC_P2",
+      "KC_P3",
       "KC_NO",
       "KC_NO",
       "KC_NO",
@@ -627,9 +626,9 @@
       "KC_NO",
       "KC_LSFT",
       "LCTL(KC_H)",
-      "KC_J",
-      "KC_K",
-      "KC_L",
+      "KC_P4",
+      "KC_P5",
+      "KC_P6",
       "KC_SCLN",
       "KC_NO",
       "ANY(LCTL(LGUI(KC_LEFT)))",
@@ -639,9 +638,9 @@
       "KC_NO",
       "KC_LCTL",
       "KC_N",
-      "KC_M",
-      "KC_COMM",
-      "KC_DOT",
+      "KC_P7",
+      "KC_P8",
+      "KC_P9",
       "KC_SLSH",
       "KC_NO",
       "KC_NO",
@@ -931,5 +930,6 @@
       "KC_TRNS"
     ]
   ],
-  "author": ""
+  "author": "",
+  "notes": ""
 }
