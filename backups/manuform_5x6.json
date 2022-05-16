@@ -138,7 +138,7 @@
       "KC_TRNS"
     ],
     [
-      "ANY(PIPE)",
+      "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
       "KC_TRNS",
@@ -154,7 +154,7 @@
       "LSFT(KC_LT)",
       "ANY(TILDE)",
       "KC_MS_U",
-      "ANY(TICK_KEY)",
+      "ANY(PIPE)",
       "ANY(L_ARR1)",
       "LGUI(KC_1)",
       "KC_PGUP",
@@ -175,7 +175,7 @@
       "KC_END",
       "KC_RSFT",
       "KC_TRNS",
-      "KC_TRNS",
+      "ANY(TICK_KEY)",
       "KC_WH_U",
       "KC_MS_D",
       "KC_WH_D",
