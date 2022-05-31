@@ -27,7 +27,7 @@ enum retro_keys {
   TILDE,
   HAT,
   SEM_COL,
-  CTL_ENT,
+  CTL_ENT_5,
   PIPE,
   QWERTY,
   BEPO,
@@ -132,7 +132,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static bool BEPO_SFT_R_THUMB_is_last_pressed;
 
     if (record->event.pressed) {
-        CTL_ENT_is_last_pressed = keycode == CTL_ENT;
+        CTL_ENT_is_last_pressed = keycode == CTL_ENT_5;
         BEPO_SFT_R_THUMB_is_last_pressed = keycode == BEPO_SFT_R_THUMB;
     }
 
@@ -145,7 +145,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_LALT);
             }
             return false;
-        case CTL_ENT: // 5
+        case CTL_ENT_5:
             if (record->event.pressed) {
                 // We registered the ctrl if it was not already
                 CTL_ENT_registered_ctl = !(get_mods() & MOD_BIT(KC_LCTL));
