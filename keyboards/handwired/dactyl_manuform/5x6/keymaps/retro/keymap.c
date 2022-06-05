@@ -38,8 +38,8 @@ enum retro_keys {
   R2_THUMB,
   L_THUMB_R_KB,
   NOLAN,
-  BEPO_SFT,
-  BEPO_SFT_R_THUMB,
+  BEPO_SFT_11,
+  BEPO_SFT_R_THUMB_11,
   SFT_ARROWS,
   ARROWS,
   LALT_TICK
@@ -133,7 +133,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     if (record->event.pressed) {
         CTL_ENT_is_last_pressed = keycode == CTL_ENT_5;
-        BEPO_SFT_R_THUMB_is_last_pressed = keycode == BEPO_SFT_R_THUMB;
+        BEPO_SFT_R_THUMB_is_last_pressed = keycode == BEPO_SFT_R_THUMB_11;
     }
 
     switch (keycode) {
@@ -164,7 +164,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
             }
             return false;
-        case BEPO_SFT: // 11
+        case BEPO_SFT_11:
             if (record->event.pressed) {
                 register_code(KC_LSFT);
                 layer_on(_BEPO_SFT);
@@ -173,7 +173,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 layer_off(_BEPO_SFT);
             }
             return false;
-        case BEPO_SFT_R_THUMB: // 11 + z
+        case BEPO_SFT_R_THUMB_11: // + z
             if (record->event.pressed) {
                 BEPO_SFT_R_THUMB_timer = timer_read();
                 register_code(KC_LSFT);
