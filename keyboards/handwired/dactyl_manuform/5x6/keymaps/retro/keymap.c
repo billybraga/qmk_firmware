@@ -3,8 +3,8 @@
 enum retro_layers {
   _QWERTY, // 0
   _BEPO, // 1
-  _R_THUMB, // 2
-  _L_THUMB, // 3
+  _R_THUM_2_4, // 2
+  _L_THUM_3_4, // 3
   _THUMBS, // 4
   _CTL_ENT, // 5
   _L_THUMB2, // 6
@@ -31,8 +31,8 @@ enum retro_keys {
   PIPE,
   QWERTY,
   BEPO,
-  R_THUMB,
-  L_THUMB,
+  R_THUM_2_4,
+  L_THUM_3_4,
   L_THUMB2,
   L2_THUMB,
   R2_THUMB,
@@ -246,23 +246,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
 
         // layers
-        case R_THUMB:
+        case R_THUM_2_4:
             if (record->event.pressed) {
-                layer_on(_R_THUMB);
-                // update_tri_layer(_R_THUMB, _L_THUMB, _THUMBS);
+                layer_on(_R_THUM_2_4);
             } else {
-                layer_off(_R_THUMB);
-                // update_tri_layer(_R_THUMB, _L_THUMB, _THUMBS);
+                layer_off(_R_THUM_2_4);
             }
             return false;
             break;
-        case L_THUMB:
+        case L_THUM_3_4:
             if (record->event.pressed) {
-                layer_on(_L_THUMB);
-                // update_tri_layer(_R_THUMB, _L_THUMB, _THUMBS);
+                layer_on(_L_THUM_3_4);
             } else {
-                layer_off(_L_THUMB);
-                // update_tri_layer(_R_THUMB, _L_THUMB, _THUMBS);
+                layer_off(_L_THUM_3_4);
             }
             return false;
             break;
@@ -271,6 +267,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 uint32_t layer_state_set_user(uint32_t state) {
-  state = update_tri_layer_state(state, _R_THUMB, _L_THUMB, _THUMBS);
+  state = update_tri_layer_state(state, _R_THUM_2_4, _L_THUM_3_4, _THUMBS);
   return state;
 }
