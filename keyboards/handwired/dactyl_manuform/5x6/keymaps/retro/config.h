@@ -20,5 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define USE_SERIAL
 #define MASTER_LEFT
 #define TAPPING_TOGGLE 2
+#define RETRO_TAPPING_PER_KEY
 #define HOLD_ON_OTHER_KEY_PRESS
 #define UNICODE_SELECTED_MODES UC_WINC

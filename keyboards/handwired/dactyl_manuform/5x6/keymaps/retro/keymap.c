@@ -270,3 +270,12 @@ uint32_t layer_state_set_user(uint32_t state) {
   state = update_tri_layer_state(state, _R_THUM_2_4, _L_THUM_3_4, _THUMBS);
   return state;
 }
+
+bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case BEPO_SFT_R_THUMB_11:
+            return true;
+        default:
+            return false;
+    }
+}
