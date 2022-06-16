@@ -254,7 +254,7 @@
       "KC_GRV",
       "LSFT(KC_GRV)",
       "RALT(KC_COMM)",
-      "RALT(KC_DOT)",
+      "LCTL(KC_DOT)",
       "KC_0",
       "KC_PDOT",
       "KC_TRNS",
