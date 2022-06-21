@@ -38,7 +38,7 @@ enum retro_keys {
   R2_THUMB,
   L_THUMB_R_KB,
   NOLAN,
-  BEPO_SFT_11,
+  BEPO_SFT_11_12,
   BEPO_SFT_R_THUMB_11,
   SFT_ARROWS,
   ARROWS,
@@ -164,7 +164,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
             }
             return false;
-        case BEPO_SFT_11:
+        case BEPO_SFT_11_12:
             if (record->event.pressed) {
                 register_code(KC_LSFT);
                 layer_on(_BEPO_SFT);
@@ -268,6 +268,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 uint32_t layer_state_set_user(uint32_t state) {
   state = update_tri_layer_state(state, _R_THUM_2_4, _L_THUM_3_4, _THUMBS);
+  state = update_tri_layer_state(state, _R_THUM_2_4, _BEPO_SFT, _SFT_ARROWS);
   return state;
 }
 
