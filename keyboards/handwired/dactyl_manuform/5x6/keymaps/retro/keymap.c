@@ -143,6 +143,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             int mods = get_mods();
             switch (keycode) {
+                case R_THUM_2_4:
+                    layer_off(_STENO);
+                    break;
                 case KC_E:
                     if ((mods & MOD_BIT(KC_S)) && (mods & MOD_BIT(KC_Q))) {
                         send_string("est-ce que");
