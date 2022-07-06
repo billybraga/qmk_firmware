@@ -139,6 +139,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         BEPO_SFT_R_THUMB_is_last_pressed = keycode == BEPO_SFT_R_THUMB_11;
     }
 
+    if (IS_LAYER_ON(_STENO)) {
+        if (record->event.pressed) {
+            int mods = get_mods();
+            switch (keycode) {
+                case KC_E:
+                    if ((mods & MOD_BIT(KC_S)) && (mods & MOD_BIT(KC_Q))) {
+                        send_string("est-ce que");
+                    }
+                break;
+                case KC_Q:
+                    if ((mods & MOD_BIT(KC_E)) && (mods & MOD_BIT(KC_S))) {
+                        send_string("est-ce qu");
+                    }
+                break;
+            }
+        }
+        return false;
+    }
+
     switch (keycode) {
         case LALT_TICK:
             if (record->event.pressed) {
@@ -240,11 +259,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case ESQ:
             if (record->event.pressed) {
                 send_string("est-ce qu");
-            }
-            break;
-        case KC_E:
-            if (record->event.pressed && IS_LAYER_ON(_STENO)) {
-                send_string("est-ce quest-ce queauiest-ce que");
             }
             break;
 
