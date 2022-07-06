@@ -244,7 +244,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case KC_E:
             if (record->event.pressed && IS_LAYER_ON(_STENO)) {
-                send_string("est-ce qu");
+                send_string("est-ce quest-ce queauiest-ce que");
             }
             break;
 
