@@ -42,7 +42,9 @@ enum retro_keys {
   BEPO_SFT_R_THUMB_11,
   SFT_ARROWS,
   ARROWS,
-  LALT_TICK
+  LALT_TICK,
+  APON,
+  ESQ
 };
 
 #include "retro_keymap.c"
@@ -229,19 +231,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case PIPE:
             alt_gr(record, KC_GRV);
             break;
-        case KC_F22:
+        case APON:
             if (record->event.pressed) {
-                send_string("qu'on ");
+                send_string("'on ");
             }
             break;
-        case KC_F23:
+        case ESQ:
             if (record->event.pressed) {
-                send_string("que ");
-            }
-            break;
-        case KC_F24:
-            if (record->event.pressed) {
-                send_string("est-ce ");
+                send_string("est-ce qu");
             }
             break;
 
