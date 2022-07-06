@@ -1,0 +1,2 @@
+﻿SUBS(sqe, "est-ce que ", KC_S, KC_Q, KC_E)
+SUBS(sqo, "est-ce qu'on ", KC_S, KC_Q, KC_O)

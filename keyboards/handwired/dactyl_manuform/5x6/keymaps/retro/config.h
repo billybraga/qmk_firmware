@@ -23,4 +23,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RETRO_TAPPING
 #define RETRO_TAPPING_PER_KEY
 #define HOLD_ON_OTHER_KEY_PRESS
-#define COMBO_SHOULD_TRIGGER
+#define COMBO_VARIABLE_LEN
+#define COMBO_TERM 50

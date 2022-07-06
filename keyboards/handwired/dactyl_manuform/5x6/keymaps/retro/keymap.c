@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "g/keymap_combo.h"
 
 enum retro_layers {
     _QWERTY, // 0
@@ -43,32 +44,11 @@ enum retro_keys {
     BEPO_SFT_R_THUMB_11,
     SFT_ARROWS,
     ARROWS,
-    LALT_TICK,
-    ESTCEQUON,
-    ESTCEQUE
-};
-
-enum combos {
-    SQO_ESTCEQUON,
-    SQE_ESTCEQUE,
-    COMBO_LENGTH
+    LALT_TICK
 };
 
 #include "retro_keymap.c"
 #include "sendstring_canadian_multilingual.h"
-
-uint16_t COMBO_LEN = COMBO_LENGTH;
-const uint16_t PROGMEM SQO_ESTCEQUON_combo[] = {KC_S, KC_Q, KC_O, COMBO_END};
-const uint16_t PROGMEM SQE_ESTCEQUE_combo[] = {KC_S, KC_Q, KC_E, COMBO_END};
-
-combo_t key_combos[] = {
-    [SQO_ESTCEQUON] = COMBO(SQO_ESTCEQUON_combo, ESTCEQUON),
-    [SQE_ESTCEQUE] = COMBO(SQE_ESTCEQUE_combo, ESTCEQUE)
-};
-
-bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
-    return true;
-}
 
 void no_ctrl(keyrecord_t *record, uint16_t code1, uint16_t code2) {
     bool is_ctrl = get_mods() & MOD_BIT(KC_LCTL);
@@ -255,18 +235,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case PIPE:
             alt_gr(record, KC_GRV);
-            break;
-
-        case ESTCEQUON:
-            if (record->event.pressed) {
-                send_string("est-ce qu'on ");
-            }
-            break;
-
-        case ESTCEQUE:
-            if (record->event.pressed) {
-                send_string("est-ce que ");
-            }
             break;
 
         // layers
