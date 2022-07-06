@@ -158,6 +158,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         BEPO_SFT_R_THUMB_is_last_pressed = keycode == BEPO_SFT_R_THUMB_11;
     }
 
+    if (record->event.pressed && IS_LAYER_ON(_STENO) && keycode == R_THUM_2_4) {
+        layer_off(_STENO);
+        return false;
+    }
+
     switch (keycode) {
         case LALT_TICK:
             if (record->event.pressed) {
