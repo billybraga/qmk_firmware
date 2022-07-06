@@ -69,7 +69,6 @@ combo_t key_combos[COMBO_COUNT] = {
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
     return true;// layer_state_is(_STENO);
 }
-
 void no_ctrl(keyrecord_t *record, uint16_t code1, uint16_t code2) {
     bool is_ctrl = get_mods() & MOD_BIT(KC_LCTL);
     if (is_ctrl) {
