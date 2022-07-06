@@ -67,7 +67,7 @@ combo_t key_combos[] = {
 };
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
-    return layer_state_is(_STENO);
+    return true;// layer_state_is(_STENO);
 }
 
 void no_ctrl(keyrecord_t *record, uint16_t code1, uint16_t code2) {
