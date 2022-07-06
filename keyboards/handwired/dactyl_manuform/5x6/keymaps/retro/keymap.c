@@ -14,7 +14,8 @@ enum retro_layers {
   _NOLAN, // 10
   _BEPO_SFT, // 11
   _SFT_ARROWS, // 12
-  _ARROWS // 13
+  _ARROWS, // 13
+  _STENO // 14
 };
 
 enum retro_keys {
@@ -238,6 +239,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case ESQ:
             if (record->event.pressed) {
+                send_string("est-ce qu");
+            }
+            break;
+        case KC_E:
+            if (record->event.pressed && IS_LAYER_ON(_STENO)) {
                 send_string("est-ce qu");
             }
             break;
