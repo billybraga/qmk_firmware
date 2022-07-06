@@ -57,11 +57,11 @@ enum combos {
 #include "retro_keymap.c"
 #include "sendstring_canadian_multilingual.h"
 
-uint16_t COMBO_LEN = COMBO_LENGTH;
+// uint16_t COMBO_LEN = COMBO_LENGTH;
 const uint16_t PROGMEM SQO_ESTCEQUON_combo[] = {KC_S, KC_Q, KC_O, COMBO_END};
 const uint16_t PROGMEM SQE_ESTCEQUE_combo[] = {KC_S, KC_Q, KC_E, COMBO_END};
 
-combo_t key_combos[] = {
+combo_t key_combos[COMBO_COUNT] = {
     [SQO_ESTCEQUON] = COMBO(SQO_ESTCEQUON_combo, ESTCEQUON),
     [SQE_ESTCEQUE] = COMBO(SQE_ESTCEQUE_combo, ESTCEQUON)
 };
