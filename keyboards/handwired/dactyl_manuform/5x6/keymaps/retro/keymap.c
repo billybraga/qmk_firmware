@@ -63,12 +63,13 @@ const uint16_t PROGMEM SQE_ESTCEQUE_combo[] = {KC_S, KC_Q, KC_E, COMBO_END};
 
 combo_t key_combos[] = {
     [SQO_ESTCEQUON] = COMBO(SQO_ESTCEQUON_combo, ESTCEQUON),
-    [SQE_ESTCEQUE] = COMBO(SQE_ESTCEQUE_combo, ESTCEQUON)
+    [SQE_ESTCEQUE] = COMBO(SQE_ESTCEQUE_combo, ESTCEQUE)
 };
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
-    return true;// layer_state_is(_STENO);
+    return true;
 }
+
 void no_ctrl(keyrecord_t *record, uint16_t code1, uint16_t code2) {
     bool is_ctrl = get_mods() & MOD_BIT(KC_LCTL);
     if (is_ctrl) {
