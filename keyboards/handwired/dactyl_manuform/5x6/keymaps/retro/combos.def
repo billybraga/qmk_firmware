@@ -2,4 +2,4 @@
 SUBS(sqo, "est-ce qu'on ", KC_S, KC_Q, KC_O)
 SUBS(ms, "microsoft ", KC_M, KC_S)
 SUBS(itl, "Interlocked.Increment(ref ", KC_I, KC_T, KC_L)
-SUBS(etu, "Es-tu  ", KC_E, KC_T, KC_U)
+SUBS(etu, "Es-tu ", KC_E, KC_T, KC_U)
