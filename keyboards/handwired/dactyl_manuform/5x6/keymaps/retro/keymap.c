@@ -266,6 +266,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_BSPC);
                 unregister_code(KC_LCTL);
 
+                _delay_ms(250);
+                
                 // enter
                 register_code(KC_ENT);
                 unregister_code(KC_ENT);
