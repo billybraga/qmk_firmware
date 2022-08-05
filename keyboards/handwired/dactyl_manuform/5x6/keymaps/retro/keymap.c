@@ -44,7 +44,8 @@ enum retro_keys {
     BEPO_SFT_R_THUMB_11,
     SFT_ARROWS,
     ARROWS,
-    LALT_TICK
+    LALT_TICK,
+    GO_FILE
 };
 
 #include "retro_keymap.c"
@@ -235,6 +236,36 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case PIPE:
             alt_gr(record, KC_GRV);
+            break;
+
+        case GO_FILE:
+            if (record->event.pressed) {
+                // ctrl+shift+space
+                register_code(KC_LCTL);
+                register_code(KC_LSFT);
+                register_code(KC_SPC);
+                unregister_code(KC_SPC);
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+
+                // ctrl+V
+                register_code(KC_LCTL);
+                register_code(KC_V);
+                unregister_code(KC_V);
+                unregister_code(KC_LCTL);
+
+                // ctrl+left
+                register_code(KC_LCTL);
+                register_code(KC_LEFT);
+                unregister_code(KC_LEFT);
+                unregister_code(KC_LCTL);
+
+                // ctrl+backspace
+                register_code(KC_LCTL);
+                register_code(KC_BSPC);
+                unregister_code(KC_BSPC);
+                unregister_code(KC_LCTL);
+            }
             break;
 
         // layers
