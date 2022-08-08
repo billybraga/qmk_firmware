@@ -638,7 +638,7 @@
       "KC_NO",
       "LGUI(KC_9)",
       "KC_LCTL",
-      "KC_N",
+      "ANY(GO_FILE)",
       "KC_7",
       "KC_8",
       "KC_9",
