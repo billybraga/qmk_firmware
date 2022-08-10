@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "sendstring_canadian_multilingual.h"
 #include "g/keymap_combo.h"
 
 enum retro_layers {
@@ -49,7 +50,6 @@ enum retro_keys {
 };
 
 #include "retro_keymap.c"
-#include "sendstring_canadian_multilingual.h"
 
 void no_ctrl(keyrecord_t *record, uint16_t code1, uint16_t code2) {
     bool is_ctrl = get_mods() & MOD_BIT(KC_LCTL);
