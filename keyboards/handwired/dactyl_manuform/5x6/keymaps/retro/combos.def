@@ -7,6 +7,8 @@ SUBS(ast, "as-tu ", KC_A, KC_S, KC_T)
 SUBS(pte, "peut-"SS_TAP(X_LBRC)"etre ", KC_P, KC_T, KC_E)
 SUBS(ptu, "peux-tu ", KC_P, KC_T, KC_U)
 
+SUBS(ajd, " aujourd'hui ", KC_A, KC_J, KC_D)
+
 SUBS(itl, "Interlocked.Increment(ref ", KC_I, KC_T, KC_L)
 SUBS(apc, "@progi.com", KC_A, KC_P, KC_C)
 SUBS(prg, "progi", KC_P, KC_R, KC_G)
