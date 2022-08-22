@@ -1,15 +1,20 @@
-﻿SUBS(sqe, "est-ce que ", KC_S, KC_Q, KC_E)
+﻿SUBS(esq, "est-ce que ", KC_S, KC_Q, KC_E)
 SUBS(sqo, "est-ce qu'on ", KC_S, KC_Q, KC_O)
+SUBS(equ, "est-ce qu' ", KC_E, KC_Q, KC_U)
+
+SUBS(etu, "es-tu ", KC_E, KC_T, KC_U)
+SUBS(ast, "as-tu ", KC_A, KC_S, KC_T)
+SUBS(pte, "peut-"SS_TAP(X_LBRC)"etre ", KC_P, KC_T, KC_E)
+SUBS(ptu, "peux-tu ", KC_P, KC_T, KC_U)
+
 SUBS(itl, "Interlocked.Increment(ref ", KC_I, KC_T, KC_L)
 SUBS(apc, "@progi.com", KC_A, KC_P, KC_C)
 SUBS(prg, "progi", KC_P, KC_R, KC_G)
 SUBS(sbn, "subscription", KC_S, KC_B, KC_N)
-SUBS(pte, "peut-"SS_TAP(X_LBRC)"etre ", KC_P, KC_T, KC_E)
-SUBS(etu, "es-tu ", KC_E, KC_T, KC_U)
-SUBS(ast, "as-tu ", KC_A, KC_S, KC_T)
-SUBS(ptu, "peux-tu ", KC_P, KC_T, KC_U)
+
 SUBS(gte, " >= ", E_TREM, KC_EQL)
 SUBS(lte, " <= ", U_GRAVE, KC_EQL)
 SUBS(arrow, "->", E_TREM, KC_C)
 SUBS(neq, " != ", KC_B, KC_EQL)
+
 SUBS(and, " AND ", KC_A, KC_N, KC_D)
