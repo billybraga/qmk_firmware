@@ -44,7 +44,9 @@ enum retro_keys {
     SFT_ARROWS,
     ARROWS,
     LALT_TICK,
-    GO_FILE
+    GO_FILE,
+    LEFT_PREV,
+    RIGHT_NEXT
 };
 
 #include "sendstring_canadian_multilingual.h"
@@ -133,6 +135,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static bool CTL_ENT_registered_ctl;
     static uint16_t BEPO_SFT_R_THUMB_timer;
     static bool BEPO_SFT_R_THUMB_is_last_pressed;
+    static uint16_t LEFT_PREV_timer;
+    static uint16_t RIGHT_NEXT_timer;
 
     if (record->event.pressed) {
         CTL_ENT_is_last_pressed = keycode == CTL_ENT_5;
@@ -145,6 +149,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     switch (keycode) {
+        case LEFT_PREV:
+            if (record->event.pressed) {
+                LEFT_PREV_timer = timer_read();
+            } else {
+                if (timer_elapsed(LEFT_PREV_timer) < TAPPING_TERM) {
+                    tap_code(KC_LEFT);
+                } else {
+                    register_code(KC_LALT);
+                    tap_code(KC_N);
+                    unregister_code(KC_LALT);
+                }
+            }
+            return false;
+        case RIGHT_NEXT:
+            if (record->event.pressed) {
+                RIGHT_NEXT_timer = timer_read();
+            } else {
+                if (timer_elapsed(RIGHT_NEXT_timer) < TAPPING_TERM) {
+                    tap_code(KC_RIGHT);
+                } else {
+                    tap_code(KC_MPRV);
+                }
+            }
+            return false;
         case LALT_TICK:
             if (record->event.pressed) {
                 register_code(KC_LALT);

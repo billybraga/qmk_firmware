@@ -8,8 +8,8 @@
   "layers": [
     [
       "KC_ESC",
-      "KC_MRWD",
-      "LALT(KC_N)",
+      "ANY(LEFT_PREV)",
+      "ANY(RIGHT_NEXT)",
       "KC_MPLY",
       "KC_VOLD",
       "KC_VOLU",
@@ -142,7 +142,7 @@
       "KC_TRNS",
       "KC_1",
       "KC_2",
-      "KC_3",
+      "KC_MSTP",
       "KC_4",
       "KC_5",
       "KC_NO",
