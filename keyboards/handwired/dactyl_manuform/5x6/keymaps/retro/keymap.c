@@ -156,9 +156,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 if (timer_elapsed(LEFT_PREV_timer) < TAPPING_TERM) {
                     tap_code(KC_LEFT);
                 } else {
-                    register_code(KC_LALT);
-                    tap_code(KC_N);
-                    unregister_code(KC_LALT);
+                    tap_code(KC_MPRV);
                 }
             }
             return false;
@@ -169,7 +167,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 if (timer_elapsed(RIGHT_NEXT_timer) < TAPPING_TERM) {
                     tap_code(KC_RIGHT);
                 } else {
-                    tap_code(KC_MPRV);
+                    register_code(KC_LALT);
+                    tap_code(KC_N);
+                    unregister_code(KC_LALT);
                 }
             }
             return false;
