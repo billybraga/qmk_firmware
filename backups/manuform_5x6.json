@@ -10,7 +10,7 @@
       "KC_ESC",
       "ANY(LEFT_PREV)",
       "ANY(RIGHT_NEXT)",
-      "KC_MPLY",
+      "ANY(PLAY_STOP)",
       "KC_VOLD",
       "KC_VOLU",
       "KC_UP",
