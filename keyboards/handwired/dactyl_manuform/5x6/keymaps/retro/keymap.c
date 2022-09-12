@@ -164,23 +164,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         case RIGHT_NEXT:
             if (record->event.pressed) {
-                PLAY_STOP_timer = timer_read();
-            } else {
-                if (timer_elapsed(PLAY_STOP_timer) < TAPPING_TERM) {
-                    tap_code(KC_MPLY);
-                } else {
-                    tap_code(KC_MSTP);
-                }
-            }
-            return false;
-        case PLAY_STOP:
-            if (record->event.pressed) {
                 RIGHT_NEXT_timer = timer_read();
             } else {
                 if (timer_elapsed(RIGHT_NEXT_timer) < TAPPING_TERM) {
                     tap_code(KC_RIGHT);
                 } else {
                     tap_code(KC_MNXT);
+                }
+            }
+            return false;
+        case PLAY_STOP:
+            if (record->event.pressed) {
+                PLAY_STOP_timer = timer_read();
+            } else {
+                if (timer_elapsed(PLAY_STOP_timer) < TAPPING_TERM) {
+                    tap_code(KC_MPLY);
+                } else {
+                    tap_code(KC_MSTP);
                 }
             }
             return false;
