@@ -2,8 +2,8 @@
 SUBS(sqo, "est-ce qu'on ", KC_S, KC_Q, KC_O)
 SUBS(ecu, "est-ce qu'", KC_E, KC_C, KC_U)
 
-SUBS(etu, "es-tu ", KC_E, KC_T, KC_U)
-SUBS(ast, "as-tu ", KC_A, KC_T, KC_U)
+SUBS(etu, "es-tu ", KC_E, KC_S, KC_T, KC_U)
+SUBS(astu, "as-tu ", KC_A, KC_S, KC_T, KC_U)
 SUBS(pte, "peut-"SS_TAP(X_LBRC)"etre ", KC_P, KC_T, KC_E)
 SUBS(ptu, "peux-tu ", KC_P, KC_T, KC_U)
 
