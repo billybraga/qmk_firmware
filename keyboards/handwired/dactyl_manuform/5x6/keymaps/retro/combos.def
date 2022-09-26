@@ -20,3 +20,6 @@ SUBS(arrow, "->", E_TREM, KC_C)
 SUBS(neq, " != ", KC_B, KC_EQL)
 
 SUBS(and, " AND ", KC_A, KC_N, KC_D)
+
+SUBS(email_gen, "billy.braga@", KC_B, KC_I, KC_R)
+SUBS(email_progi, "bbraga@progi.com", KC_B, KC_R, KC_G)
