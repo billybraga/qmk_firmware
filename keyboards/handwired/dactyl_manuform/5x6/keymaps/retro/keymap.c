@@ -204,12 +204,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     register_code(KC_LCTL);
                     layer_on(_CTL_ENT);
                 }
-                
+
                 CTL_ENT_timer = timer_read();
             } else {
                 if (CTL_ENT_registered_ctl) {
                     // Only unregister if we are the one that registered it
                     unregister_code(KC_LCTL);
+                } else {
+                    unregister_code(KC_ENT);
                 }
                 layer_off(_CTL_ENT);
 
@@ -217,6 +219,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     tap_code(KC_ENT);
                 }
             }
+
             return false;
         case BEPO_SFT_11_12:
             if (record->event.pressed) {
