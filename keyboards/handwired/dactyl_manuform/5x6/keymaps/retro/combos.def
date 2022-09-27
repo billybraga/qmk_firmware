@@ -19,7 +19,7 @@ SUBS(lte, " <= ", U_GRAVE, KC_EQL)
 SUBS(arrow, "->", E_TREM, KC_C)
 SUBS(neq, " != ", KC_B, KC_EQL)
 
-SUBS(k8s, "k8s", KC_K, KC_8)
+SUBS(k8s, "k8s", KC_K, KC_S)
 
 SUBS(and, " AND ", KC_A, KC_N, KC_D)
 
