@@ -194,11 +194,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         case CTL_ENT_5:
             if (record->event.pressed) {
-                // We registered the ctrl if it was not already
-                CTL_ENT_registered_ctl = !(get_mods() & MOD_BIT(KC_LCTL));
+                if (CTL_ENT_is_last_pressed && timer_elapsed(CTL_ENT_timer) < TAPPING_TERM) {
+                    // CTL_ENT was the last pressed (and released), and was pressed two times in TAPPING_TERM
+                    register_code(KC_ENT);
+                } else {
+                    // We registered the ctrl if it was not already
+                    CTL_ENT_registered_ctl = !(get_mods() & MOD_BIT(KC_LCTL));
+                    
+                    register_code(KC_LCTL);
+                    layer_on(_CTL_ENT);
+                }
+                
                 CTL_ENT_timer = timer_read();
-                register_code(KC_LCTL);
-                layer_on(_CTL_ENT);
             } else {
                 if (CTL_ENT_registered_ctl) {
                     // Only unregister if we are the one that registered it
