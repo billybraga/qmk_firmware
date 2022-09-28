@@ -7,6 +7,9 @@ SUBS(astu, "as-tu ", KC_A, KC_S, KC_T, KC_U)
 SUBS(pte, "peut-"SS_TAP(X_LBRC)"etre ", KC_P, KC_T, KC_E)
 SUBS(ptu, "peux-tu ", KC_P, KC_T, KC_U)
 
+SUBS(doesnt, "doesn't ", KC_D, KC_O, KC_T)
+SUBS(doesnt2, "doesn't ", KC_D, KC_O, KC_N)
+
 SUBS(ajd, "aujourd'hui ", KC_A, KC_J, KC_D)
 
 SUBS(itl, "Interlocked.Increment(ref ", KC_I, KC_T, KC_L)
