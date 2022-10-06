@@ -192,7 +192,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case CTL_ENT_5:
             if (record->event.pressed) {
                 if (CTL_ENT_is_last_pressed && timer_elapsed(CTL_ENT_timer) < TAPPING_TERM) {
-                    // CTL_ENT was the last pressed (and released), and was pressed again in TAPPING_TERM
+                    // CTL_ENT was the last pressed (and released), and was pressed again in TAPPING_TERM, keep enter down
                     register_code(KC_ENT);
                 } else {
                     // We registered the ctrl if it was not already
@@ -212,9 +212,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
                 layer_off(_CTL_ENT);
 
-                //if (CTL_ENT_is_last_pressed && timer_elapsed(CTL_ENT_timer) < TAPPING_TERM) {
-                //    tap_code(KC_ENT);
-                //}
+                if (CTL_ENT_is_last_pressed && timer_elapsed(CTL_ENT_timer) < TAPPING_TERM) {
+                    tap_code(KC_ENT);
+                }
             }
 
             break;
