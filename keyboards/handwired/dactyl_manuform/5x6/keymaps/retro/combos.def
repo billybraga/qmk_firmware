@@ -6,7 +6,7 @@ SUBS(etu, "es-tu ", KC_E, KC_S, KC_T, KC_U)
 SUBS(astu, "as-tu ", KC_A, KC_S, KC_T, KC_U)
 SUBS(pte, "peut-"SS_TAP(X_LBRC)"etre ", KC_P, KC_T, KC_E)
 SUBS(ptu, "peux-tu ", KC_P, KC_T, KC_U)
-
+SUBS(pk, "pourquoi ", KC_P, KC_K)
 
 SUBS(bcp, "beaucoup ", KC_B, KC_C, KC_P)
 
@@ -18,6 +18,7 @@ SUBS(ajd, "aujourd'hui ", KC_A, KC_J, KC_D)
 SUBS(itl, "Interlocked.Increment(ref ", KC_I, KC_T, KC_L)
 SUBS(apc, "@progi.com", KC_A, KC_P, KC_C)
 SUBS(prg, "progi", KC_P, KC_R, KC_G)
+SUBS(pron, "ProgiOne", KC_P, KC_R, KC_O, KC_N)
 SUBS(sbn, "subscription", KC_S, KC_B, KC_N)
 
 SUBS(gte, " >= ", E_TREM, KC_EQL)
