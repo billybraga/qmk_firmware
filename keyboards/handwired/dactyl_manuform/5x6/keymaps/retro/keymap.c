@@ -194,6 +194,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 if (CTL_ENT_is_last_pressed && timer_elapsed(CTL_ENT_timer) < TAPPING_TERM) {
                     // CTL_ENT was the last pressed (and released), and was pressed again in TAPPING_TERM, keep enter down
                     register_code(KC_ENT);
+                    // Avoid tap_code KC_ENT on release
+                    CTL_ENT_is_last_pressed = false;
                 } else {
                     // We registered the ctrl if it was not already
                     CTL_ENT_registered_ctl = !(get_mods() & MOD_BIT(KC_LCTL));
