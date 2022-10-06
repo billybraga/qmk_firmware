@@ -133,6 +133,7 @@ void alt_gr_dead(keyrecord_t *record, uint16_t new_code) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static uint16_t CTL_ENT_timer;
     static bool CTL_ENT_is_last_pressed;
+    static bool CTL_ENT_is_pressed_down;
     static bool CTL_ENT_registered_ctl;
     static uint16_t BEPO_SFT_R_THUMB_timer;
     static bool BEPO_SFT_R_THUMB_is_last_pressed;
@@ -195,7 +196,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     // CTL_ENT was the last pressed (and released), and was pressed again in TAPPING_TERM, keep enter down
                     register_code(KC_ENT);
                     // Avoid tap_code KC_ENT on release
-                    CTL_ENT_is_last_pressed = false;
+                    CTL_ENT_is_pressed_down = true;
                 } else {
                     // We registered the ctrl if it was not already
                     CTL_ENT_registered_ctl = !(get_mods() & MOD_BIT(KC_LCTL));
@@ -214,9 +215,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
                 layer_off(_CTL_ENT);
 
-                if (CTL_ENT_is_last_pressed && timer_elapsed(CTL_ENT_timer) < TAPPING_TERM) {
+                if (!CTL_ENT_is_pressed_down && CTL_ENT_is_last_pressed && timer_elapsed(CTL_ENT_timer) < TAPPING_TERM) {
                     tap_code(KC_ENT);
                 }
+                
+                CTL_ENT_is_pressed_down = false;
             }
 
             break;
