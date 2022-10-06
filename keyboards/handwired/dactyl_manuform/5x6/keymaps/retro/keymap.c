@@ -140,15 +140,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static uint16_t RIGHT_NEXT_timer;
     static uint16_t PLAY_STOP_timer;
 
-    if (record->event.pressed) {
-        CTL_ENT_is_last_pressed = keycode == CTL_ENT_5;
-        BEPO_SFT_R_THUMB_is_last_pressed = keycode == BEPO_SFT_R_THUMB_11;
-    }
-
     if (record->event.pressed && IS_LAYER_ON(_STENO) && keycode == R_THUM_2_4) {
         layer_off(_STENO);
         return false;
     }
+
+    bool result = false;
 
     switch (keycode) {
         case LEFT_PREV:
@@ -161,7 +158,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     tap_code_delay(KC_MPRV, 50);
                 }
             }
-            return false;
+            break;
         case RIGHT_NEXT:
             if (record->event.pressed) {
                 RIGHT_NEXT_timer = timer_read();
@@ -172,7 +169,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     tap_code_delay(KC_MNXT, 50);
                 }
             }
-            return false;
+            break;
         case PLAY_STOP:
             if (record->event.pressed) {
                 PLAY_STOP_timer = timer_read();
@@ -183,7 +180,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     tap_code(KC_MSTP);
                 }
             }
-            return false;
+            break;
         case LALT_TICK:
             if (record->event.pressed) {
                 register_code(KC_LALT);
@@ -191,7 +188,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 unregister_code(KC_LALT);
             }
-            return false;
+            break;
         case CTL_ENT_5:
             if (record->event.pressed) {
                 if (CTL_ENT_is_last_pressed && timer_elapsed(CTL_ENT_timer) < TAPPING_TERM) {
@@ -214,9 +211,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     unregister_code(KC_LCTL);
                 }
                 layer_off(_CTL_ENT);
+
+                //if (CTL_ENT_is_last_pressed && timer_elapsed(CTL_ENT_timer) < TAPPING_TERM) {
+                //    tap_code(KC_ENT);
+                //}
             }
 
-            return false;
+            break;
         case BEPO_SFT_11_12:
             if (record->event.pressed) {
                 register_code(KC_LSFT);
@@ -225,7 +226,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_LSFT);
                 layer_off(_BEPO_SFT);
             }
-            return false;
+            break;
         case BEPO_SFT_R_THUMB_11: // + z
             if (record->event.pressed) {
                 BEPO_SFT_R_THUMB_timer = timer_read();
@@ -239,7 +240,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     tap_code(KC_Z);
                 }
             }
-            return false;
+            break;
         case SEM_COL:
             no_sft1(record, KC_SCLN);
             break;
@@ -326,7 +327,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 layer_off(_R_THUM_2_4);
             }
-            return false;
             break;
         case L_THUM_3_4:
             if (record->event.pressed) {
@@ -334,10 +334,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 layer_off(_L_THUM_3_4);
             }
-            return false;
             break;
+        default:
+            result = true;
     }
-    return true;
+
+    if (record->event.pressed) {
+        CTL_ENT_is_last_pressed = keycode == CTL_ENT_5;
+        BEPO_SFT_R_THUMB_is_last_pressed = keycode == BEPO_SFT_R_THUMB_11;
+    }
+
+    return result;
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
