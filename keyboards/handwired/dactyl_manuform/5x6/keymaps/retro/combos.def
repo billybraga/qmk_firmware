@@ -21,6 +21,7 @@ SUBS(apc, "@progi.com", KC_A, KC_P, KC_C)
 SUBS(prg, "progi", KC_P, KC_R, KC_G)
 SUBS(pron, "ProgiOne", KC_P, KC_R, KC_O, KC_N)
 SUBS(sbn, "subscription", KC_S, KC_B, KC_N)
+SUBS(plne, "pipeline", KC_P, KC_E, KC_L, KC_N)
 
 SUBS(gte, " >= ", E_TREM, KC_EQL)
 SUBS(lte, " <= ", U_GRAVE, KC_EQL)
