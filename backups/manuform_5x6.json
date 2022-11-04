@@ -15,7 +15,7 @@
       "ANY(PLAY_STOP)",
       "KC_UP",
       "KC_DOWN",
-      "KC_8",
+      "LAG(KC_K)",
       "KC_9",
       "KC_0",
       "LGUI(KC_L)",
