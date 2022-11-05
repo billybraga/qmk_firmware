@@ -14,8 +14,7 @@ enum retro_layers {
     _NOLAN, // 10
     _BEPO_SFT, // 11
     _SFT_ARROWS, // 12
-    _ARROWS, // 13
-    _STENO // 14
+    _ARROWS // 13
 };
 
 enum retro_keys {
@@ -148,15 +147,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static bool BEPO_SFT_R_THUMB_is_last_pressed;
     static uint16_t LEFT_PREV_timer;
     static uint16_t RIGHT_NEXT_timer;
+    static bool PWR_PRESSED_AFTER_L_THUM_3_4;
 
-    if (record->event.pressed && IS_LAYER_ON(_STENO) && keycode == R_THUM_2_4) {
-        layer_off(_STENO);
-        return false;
-    }
 
     bool result = false;
 
     switch (keycode) {
+	case KC_PWR:
+            if (record->event.pressed) {
+                PWR_PRESSED_AFTER_L_THUM_3_4 = IS_LAYER_ON(_L_THUM_3_4);
+            } else {
+		// do not send PWR right now
+		return false;
+            }
+            break;
         case LEFT_PREV:
             if (record->event.pressed) {
                 LEFT_PREV_timer = timer_read();
@@ -429,6 +433,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 layer_on(_L_THUM_3_4);
             } else {
                 layer_off(_L_THUM_3_4);
+		if (PWR_PRESSED_AFTER_L_THUM_3_4) {
+                    PWR_PRESSED_AFTER_L_THUM_3_4 = false;
+                    tap_code(KC_PWR);
+                }
             }
             break;
         default:
