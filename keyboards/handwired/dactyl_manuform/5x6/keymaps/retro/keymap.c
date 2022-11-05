@@ -344,6 +344,54 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
 
+        case SNAP_BOTTOM_LEFT:
+            if (record->event.pressed) {
+                register_code(KC_LGUI);
+                tap_code(KC_Z);
+                unregister_code(KC_LGUI);
+                _delay_ms(250);
+                tap_code(KC_5);
+                _delay_ms(250);
+                tap_code(KC_3);
+            }
+            break;
+
+        case SNAP_BOTTOM_RIGHT:
+            if (record->event.pressed) {
+                register_code(KC_LGUI);
+                tap_code(KC_Z);
+                unregister_code(KC_LGUI);
+                _delay_ms(250);
+                tap_code(KC_5);
+                _delay_ms(250);
+                tap_code(KC_4);
+            }
+            break;
+
+        case SNAP_TOP_LEFT:
+            if (record->event.pressed) {
+                register_code(KC_LGUI);
+                tap_code(KC_Z);
+                unregister_code(KC_LGUI);
+                _delay_ms(250);
+                tap_code(KC_5);
+                _delay_ms(250);
+                tap_code(KC_1);
+            }
+            break;
+
+        case SNAP_TOP_RIGHT:
+            if (record->event.pressed) {
+                register_code(KC_LGUI);
+                tap_code(KC_Z);
+                unregister_code(KC_LGUI);
+                _delay_ms(250);
+                tap_code(KC_5);
+                _delay_ms(250);
+                tap_code(KC_2);
+            }
+            break;
+
         // layers
         case R_THUM_2_4:
             if (record->event.pressed) {
