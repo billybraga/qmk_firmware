@@ -47,14 +47,14 @@ enum retro_keys {
     GO_FILE,
     LEFT_PREV,
     RIGHT_NEXT,
-    PLAY_STOP,
     SNAP_CENTER,
     SNAP_LEFT,
     SNAP_RIGHT,
     SNAP_TOP_RIGHT,
     SNAP_BOTTOM_RIGHT,
     SNAP_TOP_LEFT,
-    SNAP_BOTTOM_LEFT
+    SNAP_BOTTOM_LEFT,
+    PAUSE_ANSWER
 };
 
 #include "sendstring_canadian_multilingual.h"
@@ -146,7 +146,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static bool BEPO_SFT_R_THUMB_is_last_pressed;
     static uint16_t LEFT_PREV_timer;
     static uint16_t RIGHT_NEXT_timer;
-    static uint16_t PLAY_STOP_timer;
 
     if (record->event.pressed && IS_LAYER_ON(_STENO) && keycode == R_THUM_2_4) {
         layer_off(_STENO);
@@ -175,17 +174,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     tap_code(KC_RIGHT);
                 } else {
                     tap_code_delay(KC_MNXT, 50);
-                }
-            }
-            break;
-        case PLAY_STOP:
-            if (record->event.pressed) {
-                PLAY_STOP_timer = timer_read();
-            } else {
-                if (timer_elapsed(PLAY_STOP_timer) < TAPPING_TERM) {
-                    tap_code(KC_MPLY);
-                } else {
-                    tap_code(KC_MSTP);
                 }
             }
             break;
@@ -413,6 +401,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_1);
                 _delay_ms(250);
                 tap_code(KC_1);
+            }
+            break;
+
+	case PAUSE_ANSWER:
+            if (record->event.pressed) {
+                register_code(KC_LALT);
+                tap_code(KC_R);
+                unregister_code(KC_LALT);
+                tap_code(KC_MPLY);
             }
             break;
 
