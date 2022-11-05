@@ -392,6 +392,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
 
+        case SNAP_RIGHT:
+            if (record->event.pressed) {
+                register_code(KC_LGUI);
+                tap_code(KC_Z);
+                unregister_code(KC_LGUI);
+                _delay_ms(250);
+                tap_code(KC_1);
+                _delay_ms(250);
+                tap_code(KC_2);
+            }
+            break;
+
+        case SNAP_LEFT:
+            if (record->event.pressed) {
+                register_code(KC_LGUI);
+                tap_code(KC_Z);
+                unregister_code(KC_LGUI);
+                _delay_ms(250);
+                tap_code(KC_1);
+                _delay_ms(250);
+                tap_code(KC_1);
+            }
+            break;
+
         // layers
         case R_THUM_2_4:
             if (record->event.pressed) {
