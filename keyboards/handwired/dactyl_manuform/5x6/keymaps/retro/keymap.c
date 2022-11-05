@@ -411,6 +411,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_LALT);
                 tap_code(KC_R);
                 unregister_code(KC_LALT);
+		_delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_MPLY);
             }
             break;
