@@ -61,6 +61,8 @@ enum retro_keys {
 #include "g/keymap_combo.h"
 #include "retro_keymap.c"
 
+const int SNAP_PRESS_DELAY = 50;
+
 void no_ctrl(keyrecord_t *record, uint16_t code1, uint16_t code2) {
     bool is_ctrl = get_mods() & MOD_BIT(KC_LCTL);
     if (is_ctrl) {
@@ -325,9 +327,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_LGUI);
 		tap_code(KC_Z);
 		unregister_code(KC_LGUI);
-		_delay_ms(250);
+		_delay_ms(SNAP_PRESS_DELAY);
 		tap_code(KC_6);
-                _delay_ms(250);
+                _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_2);
             }
             break;
@@ -337,9 +339,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_LGUI);
                 tap_code(KC_Z);
                 unregister_code(KC_LGUI);
-                _delay_ms(250);
+                _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_5);
-                _delay_ms(250);
+                _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_3);
             }
             break;
@@ -349,9 +351,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_LGUI);
                 tap_code(KC_Z);
                 unregister_code(KC_LGUI);
-                _delay_ms(250);
+                _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_5);
-                _delay_ms(250);
+                _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_4);
             }
             break;
@@ -361,9 +363,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_LGUI);
                 tap_code(KC_Z);
                 unregister_code(KC_LGUI);
-                _delay_ms(250);
+                _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_5);
-                _delay_ms(250);
+                _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_1);
             }
             break;
@@ -373,9 +375,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_LGUI);
                 tap_code(KC_Z);
                 unregister_code(KC_LGUI);
-                _delay_ms(250);
+                _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_5);
-                _delay_ms(250);
+                _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_2);
             }
             break;
@@ -385,9 +387,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_LGUI);
                 tap_code(KC_Z);
                 unregister_code(KC_LGUI);
-                _delay_ms(250);
+                _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_1);
-                _delay_ms(250);
+                _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_2);
             }
             break;
@@ -397,9 +399,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_LGUI);
                 tap_code(KC_Z);
                 unregister_code(KC_LGUI);
-                _delay_ms(250);
+                _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_1);
-                _delay_ms(250);
+                _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_1);
             }
             break;
