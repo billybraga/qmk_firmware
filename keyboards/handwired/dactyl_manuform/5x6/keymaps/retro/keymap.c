@@ -47,7 +47,14 @@ enum retro_keys {
     GO_FILE,
     LEFT_PREV,
     RIGHT_NEXT,
-    PLAY_STOP
+    PLAY_STOP,
+    SNAP_CENTER,
+    SNAP_LEFT,
+    SNAP_RIGHT,
+    SNAP_TOP_RIGHT,
+    SNAP_BOTTOM_RIGHT,
+    SNAP_TOP_LEFT,
+    SNAP_BOTTOM_LEFT
 };
 
 #include "sendstring_canadian_multilingual.h"
@@ -322,6 +329,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 // enter
                 register_code(KC_ENT);
                 unregister_code(KC_ENT);
+            }
+            break;
+	
+	case SNAP_CENTER:
+	    if (record->event.pressed) {
+                register_code(KC_LGUI);
+		tap_code(KC_Z);
+		unregister_code(KC_LGUI);
+		tap_code(KC_6);
             }
             break;
 
