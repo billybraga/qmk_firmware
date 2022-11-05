@@ -339,6 +339,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		unregister_code(KC_LGUI);
 		_delay_ms(250);
 		tap_code(KC_6);
+                _delay_ms(250);
+                tap_code(KC_2);
             }
             break;
 
