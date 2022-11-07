@@ -233,7 +233,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 layer_off(_BEPO_SFT);
             }
             break;
-        case BEPO_SFT_R_THUMB_11: // + z
+        case BEPO_SFT_R_THUMB_11: // + hat ({[)
             if (record->event.pressed) {
                 BEPO_SFT_R_THUMB_timer = timer_read();
                 register_code(KC_LSFT);
@@ -243,7 +243,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 layer_off(_BEPO_SFT);
 
                 if (BEPO_SFT_R_THUMB_is_last_pressed && timer_elapsed(BEPO_SFT_R_THUMB_timer) < TAPPING_TERM) {
-                    tap_code(KC_Z);
+                    tap_code(KC_LBRC);
                 }
             }
             break;
