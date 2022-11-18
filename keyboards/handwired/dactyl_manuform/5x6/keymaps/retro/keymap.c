@@ -148,9 +148,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static uint16_t LEFT_PREV_timer;
     static uint16_t RIGHT_NEXT_timer;
     static bool PWR_PRESSED_AFTER_L_THUM_3_4;
+    static bool MUST_GEN_LAMBDA;
 
 
     bool result = false;
+
+    if (MUST_GEN_LAMBDA) {
+	MUST_GEN_LAMBDA = false;
+	tap_code(keycode);
+	send_string(" => ");
+	tap_code(keycode);
+	send_string(".");
+	return false;
+    }
 
     switch (keycode) {
 	case KC_PWR:
@@ -269,8 +279,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
         case L_ARR2:
-            if (record->event.pressed) {
-                send_string("() => ");
+            if (!record->event.pressed) {
+               MUST_GEN_LAMBDA = true; 
             }
             break;
         case TICK_KEY:
