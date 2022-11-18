@@ -153,7 +153,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     bool result = false;
 
-    if (MUST_GEN_LAMBDA) {
+    if (MUST_GEN_LAMBDA && record->event.pressed) {
 	MUST_GEN_LAMBDA = false;
 	tap_code(keycode);
 	send_string(" => ");
