@@ -152,6 +152,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 
     bool result = false;
+    
+    if (MUST_GEN_LAMBDA && keycode == R_THUM_2_4 && !record->event.pressed) {
+        // Do nothing on the keyup of the R_THUM_2_4
+        return true;
+    }
 
     if (MUST_GEN_LAMBDA && record->event.pressed) {
 	if (keycode == L_ARR2)
@@ -289,6 +294,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case L_ARR2:
             if (!record->event.pressed) {
+	       // On key up, set flag to take next key to send string
                MUST_GEN_LAMBDA = true; 
             }
             break;
