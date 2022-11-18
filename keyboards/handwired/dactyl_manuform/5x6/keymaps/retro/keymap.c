@@ -153,12 +153,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     bool result = false;
     
-    if (MUST_GEN_LAMBDA && keycode == R_THUM_2_4 && !record->event.pressed) {
-        // Do nothing on the keyup of the R_THUM_2_4
-        return true;
-    }
-
-    if (MUST_GEN_LAMBDA && record->event.pressed) {
+    if (MUST_GEN_LAMBDA && record->event.pressed && keycode != R_THUM_2_4) {
 	if (keycode == L_ARR2)
 	    send_string("()");
 	else
@@ -171,7 +166,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	return false;
     }
 
-    if (MUST_GEN_LAMBDA && !record->event.pressed) {
+    if (MUST_GEN_LAMBDA && !record->event.pressed && keycode != R_THUM_2_4) {
 	MUST_GEN_LAMBDA = false;
 	return false;
     }
