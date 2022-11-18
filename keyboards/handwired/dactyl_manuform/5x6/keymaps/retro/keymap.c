@@ -154,7 +154,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     bool result = false;
 
     if (MUST_GEN_LAMBDA && record->event.pressed) {
-	MUST_GEN_LAMBDA = false;
 	if (keycode == L_ARR2)
 	    send_string("()");
 	else
@@ -164,6 +163,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
    	    tap_code(keycode);
 	    send_string(".");
 	}
+	return false;
+    }
+
+    if (MUST_GEN_LAMBDA && !record->event.pressed) {
+	MUST_GEN_LAMBDA = false;
 	return false;
     }
 
