@@ -150,6 +150,20 @@ void lsft(keyrecord_t *record, uint16_t new_code)
     }
 }
 
+void noctrl_lsft(keyrecord_t *record, uint16_t new_code)
+{
+    if (record->event.pressed)
+    {
+        register_code(KC_LSFT);
+        no_ctrl1(record, new_code);
+    }
+    else
+    {
+        no_ctrl1(record, new_code);
+        unregister_code(KC_LSFT);
+    }
+}
+
 void alt_gr_then(keyrecord_t *record, uint16_t new_code, uint16_t after_code)
 {
     alt_gr(record, new_code);
@@ -327,7 +341,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         }
         break;
     case E_TREM:
-        lsft(record, KC_LBRC);
+        noctrl_lsft(record, KC_LBRC);
         break;
     case U_GRAVE:
         alt_gr_then(record, KC_LBRC, KC_U);
