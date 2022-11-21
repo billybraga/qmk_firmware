@@ -41,7 +41,6 @@ enum retro_keys
     L_THUMB_R_KB,
     NOLAN,
     BEPO_SFT_11_12,
-    BEPO_SFT_R_THUMB_11,
     SFT_ARROWS,
     ARROWS,
     LALT_TICK,
@@ -172,8 +171,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     static bool CTL_ENT_is_last_pressed;
     static bool CTL_ENT_is_pressed_down;
     static bool CTL_ENT_registered_ctl;
-    static uint16_t BEPO_SFT_R_THUMB_timer;
-    static bool BEPO_SFT_R_THUMB_is_last_pressed;
     static uint16_t LEFT_PREV_timer;
     static uint16_t RIGHT_NEXT_timer;
     static bool PWR_PRESSED_AFTER_L_THUM_3_4;
@@ -314,24 +311,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         {
             unregister_code(KC_LSFT);
             layer_off(_BEPO_SFT);
-        }
-        break;
-    case BEPO_SFT_R_THUMB_11: // + hat ({[)
-        if (record->event.pressed)
-        {
-            BEPO_SFT_R_THUMB_timer = timer_read();
-            register_code(KC_LSFT);
-            layer_on(_BEPO_SFT);
-        }
-        else
-        {
-            unregister_code(KC_LSFT);
-            layer_off(_BEPO_SFT);
-
-            if (BEPO_SFT_R_THUMB_is_last_pressed && timer_elapsed(BEPO_SFT_R_THUMB_timer) < TAPPING_TERM)
-            {
-                tap_code(KC_LBRC);
-            }
         }
         break;
     case SEM_COL:
@@ -558,7 +537,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     if (record->event.pressed)
     {
         CTL_ENT_is_last_pressed = keycode == CTL_ENT_5;
-        BEPO_SFT_R_THUMB_is_last_pressed = keycode == BEPO_SFT_R_THUMB_11;
     }
 
     return result;
@@ -569,15 +547,4 @@ layer_state_t layer_state_set_user(layer_state_t state)
     state = update_tri_layer_state(state, _R_THUM_2_4, _L_THUM_3_4, _THUMBS);
     state = update_tri_layer_state(state, _R_THUM_2_4, _BEPO_SFT, _SFT_ARROWS);
     return state;
-}
-
-bool get_retro_tapping(uint16_t keycode, keyrecord_t *record)
-{
-    switch (keycode)
-    {
-    case BEPO_SFT_R_THUMB_11:
-        return true;
-    default:
-        return false;
-    }
 }
