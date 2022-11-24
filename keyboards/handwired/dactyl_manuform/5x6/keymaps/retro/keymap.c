@@ -11,7 +11,7 @@ enum retro_layers
     _L_THUMB2,     // 6
     _L2_THUMB,     // 7
     _R2_THUMB,     // 8
-    _L_THUMB_R_KB, // 9
+    _L_THUMB_R_KB_NUMS, // 9
     _NOLAN,        // 10
     _BEPO_SFT,     // 11
     _SFT_ARROWS,   // 12
@@ -56,7 +56,8 @@ enum retro_keys
     SNAP_BOTTOM_RIGHT,
     SNAP_TOP_LEFT,
     SNAP_BOTTOM_LEFT,
-    PAUSE_ANSWER
+    PAUSE_ANSWER,
+    L9_ALT
 };
 
 #include "sendstring_canadian_multilingual.h"
@@ -222,6 +223,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 
     switch (keycode)
     {
+    case L9_ALT:
+        if (record->event.pressed)
+        {
+            register_code(KC_LALT);
+            layer_on(_L_THUMB_R_KB_NUMS);
+        }
+        else
+        {
+            layer_off(_L_THUMB_R_KB_NUMS);
+            unregister_code(KC_LALT);
+        }
+        break;
     case KC_PWR:
         if (record->event.pressed)
         {
