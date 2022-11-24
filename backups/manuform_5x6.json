@@ -8,10 +8,10 @@
   "layers": [
     [
       "KC_ESC",
-      "LAG(KC_K)",
+      "ANY(MUTE_LEFT_DESKTOP)",
       "LSA(KC_LEFT)",
       "LSA(KC_RGHT)",
-      "LALT(KC_R)",
+      "ANY(ANSWER_RIGHT_DESKTOP)",
       "KC_MPLY",
       "LALT(KC_R)",
       "ANY(LEFT_PREV)",

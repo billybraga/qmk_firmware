@@ -47,6 +47,8 @@ enum retro_keys
     GO_FILE,
     LEFT_PREV,
     RIGHT_NEXT,
+    MUTE_LEFT_DESKTOP,
+    ANSWER_RIGHT_DESKTOP,
     SNAP_CENTER,
     SNAP_LEFT,
     SNAP_RIGHT,
@@ -189,6 +191,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     static uint16_t RIGHT_NEXT_timer;
     static bool PWR_PRESSED_AFTER_L_THUM_3_4;
     static bool MUST_GEN_LAMBDA;
+    static bool MUTE_LEFT_DESKTOP_timer;
+    static bool ANSWER_RIGHT_DESKTOP_timer;
 
     bool result = false;
 
@@ -260,6 +264,54 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             else
             {
                 tap_code_delay(KC_MNXT, 50);
+            }
+        }
+        break;
+    case MUTE_LEFT_DESKTOP:
+        if (record->event.pressed)
+        {
+            MUTE_LEFT_DESKTOP_timer = timer_read();
+        }
+        else
+        {
+            if (timer_elapsed(MUTE_LEFT_DESKTOP_timer) < TAPPING_TERM)
+            {
+                register_code(KC_LALT);
+                register_code(KC_LGUI);
+                tap_code(KC_K);
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LALT);
+            }
+            else
+            {
+                register_code(KC_LCTL);
+                register_code(KC_LGUI);
+                tap_code(KC_LEFT);
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LCTL);
+            }
+        }
+        break;
+    case ANSWER_RIGHT_DESKTOP:
+        if (record->event.pressed)
+        {
+            ANSWER_RIGHT_DESKTOP_timer = timer_read();
+        }
+        else
+        {
+            if (timer_elapsed(ANSWER_RIGHT_DESKTOP_timer) < TAPPING_TERM)
+            {
+                register_code(KC_LALT);
+                tap_code(KC_R);
+                unregister_code(KC_LALT);
+            }
+            else
+            {
+                register_code(KC_LCTL);
+                register_code(KC_LGUI);
+                tap_code(KC_RIGHT);
+                unregister_code(KC_LGUI);
+                unregister_code(KC_LCTL);
             }
         }
         break;
