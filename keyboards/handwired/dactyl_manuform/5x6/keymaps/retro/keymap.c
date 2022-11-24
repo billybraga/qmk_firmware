@@ -191,8 +191,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     static uint16_t RIGHT_NEXT_timer;
     static bool PWR_PRESSED_AFTER_L_THUM_3_4;
     static bool MUST_GEN_LAMBDA;
-    static bool MUTE_LEFT_DESKTOP_timer;
-    static bool ANSWER_RIGHT_DESKTOP_timer;
+    static uint16_t MUTE_LEFT_DESKTOP_timer;
+    static uint16_t ANSWER_RIGHT_DESKTOP_timer;
 
     bool result = false;
 
