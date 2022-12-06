@@ -22,6 +22,7 @@ SUBS(prg, "progi", KC_P, KC_R, KC_G)
 SUBS(pron, "ProgiOne", KC_P, KC_R, KC_O, KC_N)
 SUBS(sbn, "subscription", KC_S, KC_B, KC_N)
 SUBS(plne, "pipeline", KC_P, KC_E, KC_L, KC_N)
+SUBS(prots, "properties", KC_P, KC_R, KC_O, KC_T, KC_S)
 
 SUBS(gte, " >= ", KC_LBRC, KC_EQL)
 SUBS(lte, " <= ", U_GRAVE, KC_EQL)

@@ -24,4 +24,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RETRO_TAPPING_PER_KEY
 #define HOLD_ON_OTHER_KEY_PRESS
 #define COMBO_VARIABLE_LEN
-#define COMBO_TERM 100
+// #define COMBO_TERM 50
+// #define TAPPING_TERM 200
