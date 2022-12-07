@@ -481,7 +481,7 @@
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "ANY(LCTL(LSFT(KC_SPC)))",
+      "ANY(LCTL(LSFT(KC_H)))",
       "ANY(LCTL(LSFT(KC_Q)))",
       "ANY(LCTL(LSFT(KC_W)))",
       "ANY(LCTL(LSFT(KC_E)))",
