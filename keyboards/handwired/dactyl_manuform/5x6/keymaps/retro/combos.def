@@ -12,6 +12,8 @@ SUBS(atil, "a-t-il ", KC_A, KC_T, KC_I, KC_L)
 
 SUBS(bcp, "beaucoup ", KC_B, KC_C, KC_P)
 
+SUBS(coni, "config", KC_C, KC_O, KC_N, KC_I)
+
 SUBS(doesnt, "doesn't ", KC_D, KC_O, KC_T)
 SUBS(doesnt2, "doesn't ", KC_D, KC_O, KC_N)
 
