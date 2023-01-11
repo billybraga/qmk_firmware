@@ -56,6 +56,7 @@ enum retro_keys
     SNAP_BOTTOM_RIGHT,
     SNAP_TOP_LEFT,
     SNAP_BOTTOM_LEFT,
+    SNAP_BOTTOM,
     PAUSE_ANSWER,
     L9_ALT
 };
@@ -64,7 +65,7 @@ enum retro_keys
 #include "g/keymap_combo.h"
 #include "retro_keymap.c"
 
-const int SNAP_PRESS_DELAY = 80;
+const int SNAP_PRESS_DELAY = 100;
 
 void no_ctrl(keyrecord_t *record, uint16_t code1, uint16_t code2)
 {
@@ -569,6 +570,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             tap_code(KC_1);
             _delay_ms(SNAP_PRESS_DELAY);
             tap_code(KC_1);
+        }
+        break;
+
+    case SNAP_BOTTOM:
+        if (record->event.pressed)
+        {
+            register_code(KC_LGUI);
+            register_code(KC_LALT);
+            tap_code(KC_Z);
+            tap_code(KC_Z);
+            unregister_code(KC_LALT);
+            unregister_code(KC_LGUI);
         }
         break;
 

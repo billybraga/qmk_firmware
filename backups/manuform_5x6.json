@@ -321,7 +321,7 @@
       "KC_NO",
       "KC_TRNS",
       "KC_TRNS",
-      "LAG(KC_DOWN)",
+      "ANY(SNAP_BOTTOM)",
       "KC_F17",
       "KC_TRNS",
       "KC_TRNS",
