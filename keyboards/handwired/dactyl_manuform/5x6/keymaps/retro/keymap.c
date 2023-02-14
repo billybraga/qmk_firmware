@@ -579,6 +579,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
             register_code(KC_LGUI);
             register_code(KC_LALT);
             tap_code(KC_DOWN);
+            _delay_ms(SNAP_PRESS_DELAY);
             tap_code(KC_DOWN);
             unregister_code(KC_LALT);
             unregister_code(KC_LGUI);
@@ -586,14 +587,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         break;
 
     case PAUSE_ANSWER:
-        if (record->event.pressed)
-        {
-            register_code(KC_LALT);
-            tap_code(KC_R);
-            unregister_code(KC_LALT);
-            _delay_ms(SNAP_PRESS_DELAY);
-            tap_code(KC_MPLY);
-        }
+        // doesn't work
+        // if (record->event.pressed)
+        // {
+        //     register_code(KC_LALT);
+        //     tap_code(KC_R);
+        //     unregister_code(KC_LALT);
+        //     _delay_ms(SNAP_PRESS_DELAY);
+        //     tap_code(KC_MPLY);
+        // }
         break;
 
     // layers
