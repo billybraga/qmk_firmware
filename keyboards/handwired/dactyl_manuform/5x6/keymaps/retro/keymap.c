@@ -195,11 +195,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     static bool MUST_GEN_LAMBDA;
     static uint16_t MUTE_LEFT_DESKTOP_timer;
     static uint16_t ANSWER_RIGHT_DESKTOP_timer;
-    static uint16_t fake;
-fake=1;
-if(fake == 1){
     
-}
     bool result = false;
 
     if (MUST_GEN_LAMBDA && record->event.pressed && keycode != R_THUM_2_4)
