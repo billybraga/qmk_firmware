@@ -17,8 +17,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+#ifndef NO_DEBUG
+#define NO_DEBUG
+#endif // !NO_DEBUG
+#if !defined(NO_PRINT) && !defined(CONSOLE_ENABLE)
+#define NO_PRINT
+#endif // !NO_PRINT
+
 #define USE_SERIAL
 #define MASTER_LEFT
+#define NO_ACTION_MACRO
+#define NO_ACTION_FUNCTION
 #define TAPPING_TOGGLE 2
 #define RETRO_TAPPING
 #define RETRO_TAPPING_PER_KEY
