@@ -69,6 +69,9 @@ const int SNAP_PRESS_DELAY = 100;
 const uint16_t ABBR[][3] = {
     {KC_Q, KC_Q, KC_N}
 };
+const char *ABBR_WORDS[] = {
+    "quelqu'un"
+};
 const int ABBR_count = sizeof(ABBR)/sizeof(*ABBR);
 
 void no_ctrl(keyrecord_t *record, uint16_t code1, uint16_t code2)
@@ -218,7 +221,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
                     }
                 }
                 // Match
-                
+                tap_code_delay(KC_BSPC, 50);
+                tap_code_delay(KC_BSPC, 50);
+                tap_code_delay(KC_BSPC, 50);
+                send_string(ABBR_WORDS[i]);
+                break;
             }
         }
     } else {
