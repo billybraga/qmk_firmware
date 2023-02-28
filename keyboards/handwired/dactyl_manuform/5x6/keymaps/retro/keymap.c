@@ -204,7 +204,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     static uint16_t ANSWER_RIGHT_DESKTOP_timer;
     static uint16_t word_letters[] = {0,0,0};
     static uint8_t word_letter_index = -1;
-    static bool is = -1;
+    static bool is_word_code_match = false;
 
     bool result = false;
 
@@ -215,16 +215,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         }
         
         if (word_letter_index == 2) {
+            word_letter_index = -1;
+            is_word_code_match = true;
+
             for (int i = 0; i < ABBR_count; i++) {
                 for (int j = 0; j < 3; j++) {
                     if (word_letters[j] != ABBR[i][j]) {
-                        is = false;
+                        is_word_code_match = false;
                         break;
                     }
-                    is = true;
                 }
                 
-                if (is) {
+                if (is_word_code_match) {
                     // Match
                     tap_code_delay(KC_BSPC, 50);
                     tap_code_delay(KC_BSPC, 50);
