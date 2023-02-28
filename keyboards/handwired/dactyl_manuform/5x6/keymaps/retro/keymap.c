@@ -66,6 +66,10 @@ enum retro_keys
 #include "retro_keymap.c"
 
 const int SNAP_PRESS_DELAY = 100;
+const uint16_t ABBR[][3] = {
+    {KC_Q, KC_Q, KC_N}
+};
+const int ABBR_count = sizeof(ABBR)/sizeof(*ABBR);
 
 void no_ctrl(keyrecord_t *record, uint16_t code1, uint16_t code2)
 {
@@ -195,8 +199,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     static bool MUST_GEN_LAMBDA;
     static uint16_t MUTE_LEFT_DESKTOP_timer;
     static uint16_t ANSWER_RIGHT_DESKTOP_timer;
-    
+    static uint16_t word_letters[] = {0,0,0};
+    static uint8_t word_letter_index = -1;
+
     bool result = false;
+
+    if (keycode >= KC_A && keycode <= KC_Z) {
+        word_letter_index += 1;
+        if (word_letter_index <= 2) {
+            word_letters[word_letter_index] = keycode;
+        }
+        
+        if (word_letter_index == 2) {
+            for (int i = 0; i < ABBR_count; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (word_letters[j] != ABBR[i][j]) {
+                        break;
+                    }
+                }
+                // Match
+                
+            }
+        }
+    } else {
+        word_letter_index = -1;
+    }
 
     if (MUST_GEN_LAMBDA && record->event.pressed && keycode != R_THUM_2_4)
     {
