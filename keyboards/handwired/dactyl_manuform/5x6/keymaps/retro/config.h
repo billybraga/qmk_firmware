@@ -35,3 +35,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define COMBO_VARIABLE_LEN
 // #define COMBO_TERM 50
 // #define TAPPING_TERM 200
+#define MUTE_LEFT_DESKTOP LT(0, KC_M)
