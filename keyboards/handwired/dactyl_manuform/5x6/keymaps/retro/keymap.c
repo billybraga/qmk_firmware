@@ -264,22 +264,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
         case MUTE_LEFT_DESKTOP:
-            if (record->tap.count == 0) {
-                // Key is being held, ctrl+win+left
-                register_code(KC_LCTL);
-                register_code(KC_LGUI);
-                tap_code(KC_LEFT);
-                unregister_code(KC_LGUI);
-                unregister_code(KC_LCTL);
-            } else {
-                // Key is being tapped, alt+win+k
-                register_code(KC_LALT);
-                register_code(KC_LGUI);
-                tap_code(KC_K);
-                unregister_code(KC_LGUI);
-                unregister_code(KC_LALT);
+            if (record->event.pressed) {
+                if (record->tap.count == 0) {
+                    // Key is being held, ctrl+win+left
+                    register_code(KC_LCTL);
+                    register_code(KC_LGUI);
+                    tap_code(KC_LEFT);
+                    unregister_code(KC_LGUI);
+                    unregister_code(KC_LCTL);
+                } else {
+                    // Key is being tapped, alt+win+k
+                    register_code(KC_LALT);
+                    register_code(KC_LGUI);
+                    tap_code(KC_K);
+                    unregister_code(KC_LGUI);
+                    unregister_code(KC_LALT);
+                }
+                return false;
             }
-            return false;
+            break;
         case ANSWER_RIGHT_DESKTOP:
             if (record->event.pressed) {
                 ANSWER_RIGHT_DESKTOP_timer = timer_read();
