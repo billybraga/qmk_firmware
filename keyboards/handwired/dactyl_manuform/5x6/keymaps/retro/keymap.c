@@ -43,10 +43,6 @@ enum retro_keys {
     ARROWS,
     LALT_TICK,
     GO_FILE,
-    LEFT_PREV,
-    RIGHT_NEXT,
-    // MUTE_LEFT_DESKTOP,
-    ANSWER_RIGHT_DESKTOP,
     SNAP_CENTER,
     SNAP_LEFT,
     SNAP_RIGHT,
@@ -159,12 +155,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static bool     CTL_ENT_is_last_pressed;
     static bool     CTL_ENT_is_pressed_down;
     static bool     CTL_ENT_registered_ctl;
-    static uint16_t LEFT_PREV_timer;
-    static uint16_t RIGHT_NEXT_timer;
     static bool     PWR_PRESSED_AFTER_L_THUM_3_4;
     static bool     MUST_GEN_LAMBDA;
-    // static uint16_t MUTE_LEFT_DESKTOP_timer;
-    static uint16_t ANSWER_RIGHT_DESKTOP_timer;
     static uint16_t word_letters[]     = {0, 0, 0};
     static uint8_t  word_letter_index  = -1;
     static bool     is_word_code_match = false;
@@ -243,9 +235,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case LEFT_PREV:
             if (record->event.pressed) {
-                LEFT_PREV_timer = timer_read();
-            } else {
-                if (timer_elapsed(LEFT_PREV_timer) < TAPPING_TERM) {
+                if (record->tap.count > 0) {
                     tap_code(KC_LEFT);
                 } else {
                     tap_code_delay(KC_MPRV, 50);
@@ -254,9 +244,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case RIGHT_NEXT:
             if (record->event.pressed) {
-                RIGHT_NEXT_timer = timer_read();
-            } else {
-                if (timer_elapsed(RIGHT_NEXT_timer) < TAPPING_TERM) {
+                if (record->tap.count > 0) {
                     tap_code(KC_RIGHT);
                 } else {
                     tap_code_delay(KC_MNXT, 50);
@@ -265,29 +253,27 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case MUTE_LEFT_DESKTOP:
             if (record->event.pressed) {
-                if (record->tap.count == 0) {
-                    // Key is being held, ctrl+win+left
-                    register_code(KC_LCTL);
-                    register_code(KC_LGUI);
-                    tap_code(KC_LEFT);
-                    unregister_code(KC_LGUI);
-                    unregister_code(KC_LCTL);
-                } else {
+                if (record->tap.count > 0) {
                     // Key is being tapped, alt+win+k
                     register_code(KC_LALT);
                     register_code(KC_LGUI);
                     tap_code(KC_K);
                     unregister_code(KC_LGUI);
                     unregister_code(KC_LALT);
+                } else {
+                    // Key is being held, ctrl+win+left
+                    register_code(KC_LCTL);
+                    register_code(KC_LGUI);
+                    tap_code(KC_LEFT);
+                    unregister_code(KC_LGUI);
+                    unregister_code(KC_LCTL);
                 }
                 return false;
             }
             break;
         case ANSWER_RIGHT_DESKTOP:
             if (record->event.pressed) {
-                ANSWER_RIGHT_DESKTOP_timer = timer_read();
-            } else {
-                if (timer_elapsed(ANSWER_RIGHT_DESKTOP_timer) < TAPPING_TERM) {
+                if (record->tap.count > 0) {
                     register_code(KC_LALT);
                     tap_code(KC_R);
                     unregister_code(KC_LALT);

@@ -36,3 +36,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define COMBO_TERM 50
 // #define TAPPING_TERM 200
 #define MUTE_LEFT_DESKTOP LT(0, KC_M)
+#define ANSWER_RIGHT_DESKTOP LT(0, KC_A)
+#define LEFT_PREV LT(0, KC_L)
+#define RIGHT_NEXT LT(0, KC_N)
