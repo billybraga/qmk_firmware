@@ -1,6 +1,6 @@
 ﻿SUBS(esq, "est-ce que ", KC_S, KC_Q, KC_E)
 SUBS(sqo, "est-ce qu'on ", KC_S, KC_Q, KC_O)
-SUBS(ecu, "est-ce qu'", KC_E, KC_C, KC_U)
+SUBS(ecu, "est-ce qu", KC_E, KC_C, KC_U)
 
 SUBS(etu, "es-tu ", KC_E, KC_S, KC_T, KC_U)
 SUBS(astu, "as-tu ", KC_A, KC_S, KC_T, KC_U)
