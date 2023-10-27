@@ -177,7 +177,7 @@ void handle_abbr_end(uint16_t word_letters[]) {
 }
 
 void handle_abbr(uint16_t keycode, keyrecord_t *record) {
-    static uint16_t ABBR_timer;
+    // static uint16_t ABBR_timer;
     static uint16_t word_letters[]     = {0, 0, 0};
     static uint8_t  word_letter_index  = -1;
 
@@ -195,17 +195,17 @@ void handle_abbr(uint16_t keycode, keyrecord_t *record) {
         word_letters[word_letter_index] = keycode;
     }
 
-    if (word_letter_index == 0) {
-        ABBR_timer = timer_read();
-        return;
-    }
+    // if (word_letter_index == 0) {
+    //     ABBR_timer = timer_read();
+    //     return;
+    // }
 
     if (word_letter_index == 2) {
         word_letter_index  = -1;
 
-        if (timer_elapsed(ABBR_timer) > TAPPING_TERM) {
-            return;
-        }
+        // if (timer_elapsed(ABBR_timer) > TAPPING_TERM) {
+        //     return;
+        // }
 
         handle_abbr_end(word_letters);
     }
