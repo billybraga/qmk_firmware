@@ -35,6 +35,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define COMBO_VARIABLE_LEN
 // #define COMBO_TERM 50
 // #define TAPPING_TERM 200
+#define ABBR_TERM 500
 #define MUTE_LEFT_DESKTOP LT(0, KC_M)
 #define ANSWER_RIGHT_DESKTOP LT(0, KC_A)
 #define LEFT_PREV LT(0, KC_L)

@@ -203,7 +203,7 @@ void handle_abbr(uint16_t keycode, keyrecord_t *record) {
     if (word_letter_index == 2) {
         word_letter_index  = -1;
 
-        if (timer_elapsed(ABBR_timer) > TAPPING_TERM) {
+        if (timer_elapsed(ABBR_timer) > ABBR_TERM) {
             return;
         }
 
