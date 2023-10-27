@@ -163,36 +163,38 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     bool result = false;
 
-    if (keycode >= KC_A && keycode <= KC_Z) {
-        word_letter_index += 1;
-        if (word_letter_index <= 2) {
-            word_letters[word_letter_index] = keycode;
-        }
+    if (!record->event.pressed) {
+        if (keycode >= KC_A && keycode <= KC_Z) {
+            word_letter_index += 1;
+            if (word_letter_index <= 2) {
+                word_letters[word_letter_index] = keycode;
+            }
 
-        if (word_letter_index == 2) {
-            word_letter_index  = -1;
-            is_word_code_match = true;
+            if (word_letter_index == 2) {
+                word_letter_index  = -1;
+                is_word_code_match = true;
 
-            for (int i = 0; i < ABBR_count; i++) {
-                for (int j = 0; j < 3; j++) {
-                    if (word_letters[j] != ABBR[i][j]) {
-                        is_word_code_match = false;
+                for (int i = 0; i < ABBR_count; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        if (word_letters[j] != ABBR[i][j]) {
+                            is_word_code_match = false;
+                            break;
+                        }
+                    }
+
+                    if (is_word_code_match) {
+                        // Match
+                        tap_code_delay(KC_BSPC, 50);
+                        tap_code_delay(KC_BSPC, 50);
+                        tap_code_delay(KC_BSPC, 50);
+                        send_string(ABBR_WORDS[i]);
                         break;
                     }
                 }
-
-                if (is_word_code_match) {
-                    // Match
-                    tap_code_delay(KC_BSPC, 50);
-                    tap_code_delay(KC_BSPC, 50);
-                    tap_code_delay(KC_BSPC, 50);
-                    send_string(ABBR_WORDS[i]);
-                    break;
-                }
             }
+        } else {
+            word_letter_index = -1;
         }
-    } else {
-        word_letter_index = -1;
     }
 
     if (MUST_GEN_LAMBDA && record->event.pressed && keycode != R_THUM_2_4) {
