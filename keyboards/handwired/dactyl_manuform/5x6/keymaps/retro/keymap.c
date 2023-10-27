@@ -150,6 +150,67 @@ void alt_gr_dead(keyrecord_t *record, uint16_t new_code) {
     alt_gr_then(record, new_code, KC_SPC);
 }
 
+void handle_abbr_end(uint16_t word_letters[]) {
+    bool is_word_code_match = false;
+
+    is_word_code_match = true;
+
+    for (int i = 0; i < ABBR_count; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (word_letters[j] != ABBR[i][j]) {
+                is_word_code_match = false;
+                break;
+            }
+        }
+
+        if (!is_word_code_match) {
+            return;
+        }
+
+        // Match
+        tap_code_delay(KC_BSPC, 50);
+        tap_code_delay(KC_BSPC, 50);
+        tap_code_delay(KC_BSPC, 50);
+        send_string(ABBR_WORDS[i]);
+        break;
+    }
+}
+
+void handle_abbr(uint16_t keycode, keyrecord_t *record) {
+    static uint16_t ABBR_timer;
+    static uint16_t word_letters[]     = {0, 0, 0};
+    static uint8_t  word_letter_index  = -1;
+
+    if (record->event.pressed) {
+        return;
+    }
+
+    if (keycode < KC_A || keycode > KC_Z) {
+        word_letter_index = -1;
+        return;
+    }
+
+    word_letter_index += 1;
+    if (word_letter_index <= 2) {
+        word_letters[word_letter_index] = keycode;
+    }
+
+    if (word_letter_index == 0) {
+        ABBR_timer = timer_read();
+        return;
+    }
+
+    if (word_letter_index == 2) {
+        word_letter_index  = -1;
+
+        if (timer_elapsed(ABBR_timer) > TAPPING_TERM) {
+            return;
+        }
+
+        handle_abbr_end(word_letters);
+    }
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static uint16_t CTL_ENT_timer;
     static bool     CTL_ENT_is_last_pressed;
@@ -157,45 +218,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static bool     CTL_ENT_registered_ctl;
     static bool     PWR_PRESSED_AFTER_L_THUM_3_4;
     static bool     MUST_GEN_LAMBDA;
-    static uint16_t word_letters[]     = {0, 0, 0};
-    static uint8_t  word_letter_index  = -1;
-    static bool     is_word_code_match = false;
 
     bool result = false;
 
-    if (!record->event.pressed) {
-        if (keycode >= KC_A && keycode <= KC_Z) {
-            word_letter_index += 1;
-            if (word_letter_index <= 2) {
-                word_letters[word_letter_index] = keycode;
-            }
-
-            if (word_letter_index == 2) {
-                word_letter_index  = -1;
-                is_word_code_match = true;
-
-                for (int i = 0; i < ABBR_count; i++) {
-                    for (int j = 0; j < 3; j++) {
-                        if (word_letters[j] != ABBR[i][j]) {
-                            is_word_code_match = false;
-                            break;
-                        }
-                    }
-
-                    if (is_word_code_match) {
-                        // Match
-                        tap_code_delay(KC_BSPC, 50);
-                        tap_code_delay(KC_BSPC, 50);
-                        tap_code_delay(KC_BSPC, 50);
-                        send_string(ABBR_WORDS[i]);
-                        break;
-                    }
-                }
-            }
-        } else {
-            word_letter_index = -1;
-        }
-    }
 
     if (MUST_GEN_LAMBDA && record->event.pressed && keycode != R_THUM_2_4) {
         if (keycode != KC_ESC) {
