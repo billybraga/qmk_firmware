@@ -168,9 +168,9 @@ void handle_abbr_end(uint16_t word_letters[]) {
         }
 
         // Match
-        tap_code_delay(KC_BSPC, 50);
-        tap_code_delay(KC_BSPC, 50);
-        tap_code_delay(KC_BSPC, 50);
+        tap_code_delay(KC_BSPC, TAP_CODE_DELAY);
+        tap_code_delay(KC_BSPC, TAP_CODE_DELAY);
+        tap_code_delay(KC_BSPC, TAP_CODE_DELAY);
         send_string(ABBR_WORDS[i]);
         break;
     }
@@ -203,7 +203,7 @@ void handle_abbr(uint16_t keycode, keyrecord_t *record) {
     if (word_letter_index == 2) {
         word_letter_index  = -1;
 
-        if (timer_elapsed(ABBR_timer) > ABBR_TERM) {
+        if (timer_elapsed(ABBR_timer) > ABBR_TERM   ) {
             return;
         }
 

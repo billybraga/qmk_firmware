@@ -4,6 +4,7 @@ SUBS(osq, "est-ce qu'", KC_S, KC_Q, KC_O)
 SUBS(posq_maj, "Est-ce qu'", KC_S, KC_Q, KC_O, KC_P)
 
 SUBS(etu, "es-tu ", KC_E, KC_S, KC_T, KC_U)
+SUBS(Eitu, "Es-tu ", KC_E, KC_I, KC_S, KC_T, KC_U)
 SUBS(astu, "as-tu ", KC_A, KC_S, KC_T, KC_U)
 SUBS(pte, "peut-"SS_TAP(X_LBRC)"etre ", KC_P, KC_T, KC_E)
 SUBS(eacute_pte, "Peut-"SS_TAP(X_LBRC)"etre ", KC_SLSH, KC_P, KC_T, KC_E)
