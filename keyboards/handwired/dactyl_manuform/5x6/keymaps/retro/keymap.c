@@ -290,7 +290,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     // unregister_code(KC_LGUI);
                     // unregister_code(KC_LALT);
 
-                    // Currently, with new teams, ctrl+shift+alt+M, wait, ctrl+shift+M
+                    // Currently, with new teams, ctrl+shift+alt+M (ImproveWindows.Wpf), wait, ctrl+shift+M
                     register_code(KC_LALT);
                     register_code(KC_LSFT);
                     register_code(KC_LCTL);
