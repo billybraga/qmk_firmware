@@ -290,7 +290,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     // unregister_code(KC_LGUI);
                     // unregister_code(KC_LALT);
 
-                    // Currently, with new teams, ctrl+shift+alt+M (ImproveWindows.Wpf), wait, ctrl+shift+M
+                    // Currently, with new teams, ctrl+shift+alt+M (ImproveWindows.Wpf)
                     register_code(KC_LALT);
                     register_code(KC_LSFT);
                     register_code(KC_LCTL);
@@ -298,12 +298,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     unregister_code(KC_LCTL);
                     unregister_code(KC_LSFT);
                     unregister_code(KC_LALT);
-                    _delay_ms(250);
-                    register_code(KC_LSFT);
-                    register_code(KC_LCTL);
-                    tap_code(KC_M);
-                    unregister_code(KC_LCTL);
-                    unregister_code(KC_LSFT);
                 } else {
                     // Key is being held, ctrl+win+left
                     register_code(KC_LCTL);
