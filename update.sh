@@ -6,6 +6,9 @@ git pull
 if [ -f /mnt/c/Users/bbraga/Downloads/billybraga.json ]; then
     cat /mnt/c/Users/bbraga/Downloads/billybraga.json > backups/manuform_5x6.json
     rm /mnt/c/Users/bbraga/Downloads/billybraga.json
+elif [ -f /mnt/c/Users/billy/Downloads/billybraga.json ]; then
+    cat /mnt/c/Users/billy/Downloads/billybraga.json > backups/manuform_5x6.json
+    rm /mnt/c/Users/billy/Downloads/billybraga.json
 else
     echo ----
     echo REUSING OLD JSON
