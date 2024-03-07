@@ -59,6 +59,9 @@ enum retro_keys {
 #include "g/keymap_combo.h"
 #include "retro_keymap.c"
 
+const uint16_t WIN_SNAP_2x2 = KC_8;
+const uint16_t WIN_SNAP_2_COLUMNS = KC_4;
+const uint16_t WIN_SNAP_3_UNBALANCED_COLUMNS = KC_9;
 const int      SNAP_PRESS_DELAY = 100;
 const uint16_t ABBR[][3]        = {{KC_Q, KC_Q, KC_N}};
 const char    *ABBR_WORDS[]     = {"quelqu'un"};
@@ -460,7 +463,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_Z);
                 unregister_code(KC_LGUI);
                 _delay_ms(SNAP_PRESS_DELAY);
-                tap_code(KC_6);
+                tap_code(WIN_SNAP_3_UNBALANCED_COLUMNS);
                 _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_2);
             }
@@ -472,7 +475,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_Z);
                 unregister_code(KC_LGUI);
                 _delay_ms(SNAP_PRESS_DELAY);
-                tap_code(KC_5);
+                tap_code(WIN_SNAP_2x2);
                 _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_3);
             }
@@ -484,7 +487,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_Z);
                 unregister_code(KC_LGUI);
                 _delay_ms(SNAP_PRESS_DELAY);
-                tap_code(KC_5);
+                tap_code(WIN_SNAP_2x2);
                 _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_4);
             }
@@ -496,7 +499,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_Z);
                 unregister_code(KC_LGUI);
                 _delay_ms(SNAP_PRESS_DELAY);
-                tap_code(KC_5);
+                tap_code(WIN_SNAP_2x2);
                 _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_1);
             }
@@ -508,7 +511,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_Z);
                 unregister_code(KC_LGUI);
                 _delay_ms(SNAP_PRESS_DELAY);
-                tap_code(KC_5);
+                tap_code(WIN_SNAP_2x2);
                 _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_2);
             }
@@ -520,7 +523,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_Z);
                 unregister_code(KC_LGUI);
                 _delay_ms(SNAP_PRESS_DELAY);
-                tap_code(KC_1);
+                tap_code(WIN_SNAP_2_COLUMNS);
                 _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_2);
             }
@@ -532,7 +535,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_Z);
                 unregister_code(KC_LGUI);
                 _delay_ms(SNAP_PRESS_DELAY);
-                tap_code(KC_1);
+                tap_code(WIN_SNAP_2_COLUMNS);
                 _delay_ms(SNAP_PRESS_DELAY);
                 tap_code(KC_1);
             }
