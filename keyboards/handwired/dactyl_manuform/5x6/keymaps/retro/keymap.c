@@ -63,8 +63,8 @@ const uint16_t WIN_SNAP_2x2 = KC_8;
 const uint16_t WIN_SNAP_2_COLUMNS = KC_4;
 const uint16_t WIN_SNAP_3_UNBALANCED_COLUMNS = KC_9;
 const int      SNAP_PRESS_DELAY = 100;
-const uint16_t ABBR[][3]        = {{KC_Q, KC_Q, KC_N}};
-const char    *ABBR_WORDS[]     = {"quelqu'un"};
+const uint16_t ABBR[][3]        = {{KC_Q, KC_Q, KC_N}, {KC_Q, KC_Q, KC_SPACE}, {KC_Q, KC_Q, KC_S}};
+const char    *ABBR_WORDS[]     = {"quelqu'un", "quelque ", "quelques"};
 const int      ABBR_count       = sizeof(ABBR) / sizeof(*ABBR);
 
 void no_ctrl(keyrecord_t *record, uint16_t code1, uint16_t code2) {
