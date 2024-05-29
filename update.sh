@@ -1,14 +1,16 @@
 #!/usr/bin/bash
 set -e
 
+file=/mnt/c/Users/bbraga/Downloads/handwired_dactyl_manuform_5x6_billybraga.json
+
 cd ~/dev/thirdparty/qmk/qmk_firmware/
 git pull
-if [ -f /mnt/c/Users/bbraga/Downloads/billybraga.json ]; then
-    cat /mnt/c/Users/bbraga/Downloads/billybraga.json > backups/manuform_5x6.json
-    rm /mnt/c/Users/bbraga/Downloads/billybraga.json
-elif [ -f /mnt/c/Users/billy/Downloads/billybraga.json ]; then
-    cat /mnt/c/Users/billy/Downloads/billybraga.json > backups/manuform_5x6.json
-    rm /mnt/c/Users/billy/Downloads/billybraga.json
+if [ -f $file ]; then
+    cat $file > backups/manuform_5x6.json
+    rm $file 
+elif [ -f $file ]; then
+    cat $file > backups/manuform_5x6.json
+    rm $file
 else
     echo ----
     echo REUSING OLD JSON
