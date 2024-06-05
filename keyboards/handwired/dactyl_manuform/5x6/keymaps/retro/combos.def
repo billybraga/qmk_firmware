@@ -12,6 +12,7 @@ SUBS(ptu, "peux-tu ", KC_P, KC_T, KC_U)
 SUBS(aton, "a-t-on ", KC_A, KC_T, KC_O, KC_N)
 SUBS(pk, "pourquoi ", KC_P, KC_K)
 SUBS(atil, "a-t-il ", KC_A, KC_T, KC_I, KC_L)
+SUBS(prb, "probablement", KC_P, KC_R, KC_B)
 
 SUBS(bcp, "beaucoup ", KC_B, KC_C, KC_P)
 
