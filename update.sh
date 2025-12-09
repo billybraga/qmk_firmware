@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 set -e
 
-file=/mnt/c/Users/bbraga/Downloads/handwired_dactyl_manuform_5x6_billybraga.json
+file=/mnt/c/Users/billy/Downloads/billybraga.json
 
 cd ~/dev/thirdparty/qmk/qmk_firmware/
 git pull
