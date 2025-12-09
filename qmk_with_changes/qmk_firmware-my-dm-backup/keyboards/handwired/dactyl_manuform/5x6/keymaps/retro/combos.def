@@ -1,0 +1,43 @@
+﻿SUBS(esq, "est-ce que ", KC_S, KC_Q, KC_E)
+SUBS(iesq_maj, "Est-ce que ", KC_S, KC_Q, KC_E, KC_I)
+SUBS(osq, "est-ce qu'", KC_S, KC_Q, KC_O)
+SUBS(posq_maj, "Est-ce qu'", KC_S, KC_Q, KC_O, KC_P)
+
+SUBS(etu, "es-tu ", KC_E, KC_S, KC_T, KC_U)
+SUBS(Eitu, "Es-tu ", KC_E, KC_I, KC_S, KC_T, KC_U)
+SUBS(astu, "as-tu ", KC_A, KC_S, KC_T, KC_U)
+SUBS(pte, "peut-"SS_TAP(X_LBRC)"etre ", KC_P, KC_T, KC_E)
+SUBS(pMajTe, "Peut-"SS_TAP(X_LBRC)"etre ", KC_S, KC_P, KC_T, KC_E)
+SUBS(ptu, "peux-tu ", KC_P, KC_T, KC_U)
+SUBS(aton, "a-t-on ", KC_A, KC_T, KC_O, KC_N)
+SUBS(pk, "pourquoi ", KC_P, KC_K)
+SUBS(atil, "a-t-il ", KC_A, KC_T, KC_I, KC_L)
+SUBS(prb, "probablement", KC_P, KC_R, KC_B)
+
+SUBS(bcp, "beaucoup ", KC_B, KC_C, KC_P)
+
+SUBS(coni, "config", KC_C, KC_O, KC_N, KC_I)
+
+SUBS(doesnt, "doesn't ", KC_D, KC_O, KC_T)
+SUBS(doesnt2, "doesn't ", KC_D, KC_O, KC_N)
+
+SUBS(ajd, "aujourd'hui ", KC_A, KC_J, KC_D)
+
+SUBS(apc, "@progi.com", KC_A, KC_P, KC_C)
+SUBS(prg, "progi", KC_P, KC_R, KC_G)
+SUBS(pron, "ProgiOne", KC_P, KC_R, KC_O, KC_N)
+SUBS(sbn, "subscription", KC_S, KC_B, KC_N)
+SUBS(plne, "pipeline", KC_P, KC_E, KC_L, KC_N)
+SUBS(prots, "properties", KC_P, KC_R, KC_O, KC_T, KC_S)
+
+SUBS(gte, " >= ", KC_LBRC, KC_EQL)
+SUBS(lte, " <= ", U_GRAVE, KC_EQL)
+SUBS(arrow, "->", KC_LBRC, KC_C)
+SUBS(neq, " != ", KC_B, KC_EQL)
+
+SUBS(k8s, "k8s", KC_K, KC_S)
+
+SUBS(and, " AND ", KC_A, KC_N, KC_D)
+
+SUBS(email_gen, "billy.braga@", KC_B, KC_I, KC_R)
+SUBS(email_progi, "bbraga@progi.com", KC_B, KC_R, KC_G)
