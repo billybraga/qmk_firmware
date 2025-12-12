@@ -67,7 +67,7 @@ const int      SNAP_PRESS_DELAY = 100;
 const uint16_t ABBR[][3]        = {{KC_Q, KC_Q, KC_N}, {KC_Q, KC_Q, KC_SPACE}, {KC_Q, KC_Q, KC_S}};
 const char    *ABBR_WORDS[]     = {"quelqu'un", "quelque ", "quelques"};
 const int      ABBR_count       = sizeof(ABBR) / sizeof(*ABBR);
-static uint16_t kc;
+static uint16_t alt_pgup_kc;
 
 bool alt_is_pressed(void) {
     return get_mods() & MOD_BIT(KC_LALT);
@@ -592,9 +592,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
 
         case COMM_PGUP:
-            kc = alt_is_pressed() ? KC_PGUP : KC_COMM;
+            alt_pgup_kc = alt_is_pressed() ? KC_PGUP : KC_COMM;
             if (record->event.pressed) {
-                register_code(kc);
+                register_code(alt_pgup_kc);
             } else {
                 unregister_code(KC_PGUP);
                 unregister_code(KC_COMM);
