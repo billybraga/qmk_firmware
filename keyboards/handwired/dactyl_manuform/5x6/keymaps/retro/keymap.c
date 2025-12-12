@@ -52,7 +52,8 @@ enum retro_keys {
     SNAP_BOTTOM_LEFT,
     SNAP_BOTTOM,
     PAUSE_ANSWER,
-    L9_ALT
+    L9_ALT,
+    COMM_PGUP
 };
 
 #include "sendstring_canadian_multilingual.h"
@@ -66,6 +67,11 @@ const int      SNAP_PRESS_DELAY = 100;
 const uint16_t ABBR[][3]        = {{KC_Q, KC_Q, KC_N}, {KC_Q, KC_Q, KC_SPACE}, {KC_Q, KC_Q, KC_S}};
 const char    *ABBR_WORDS[]     = {"quelqu'un", "quelque ", "quelques"};
 const int      ABBR_count       = sizeof(ABBR) / sizeof(*ABBR);
+static uint16_t kc;
+
+bool alt_is_pressed(void) {
+    return get_mods() & MOD_BIT(KC_LALT);
+}
 
 void no_ctrl(keyrecord_t *record, uint16_t code1, uint16_t code2) {
     bool is_ctrl = get_mods() & MOD_BIT(KC_LCTL);
@@ -582,6 +588,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     PWR_PRESSED_AFTER_L_THUM_3_4 = false;
                     tap_code(KC_PWR);
                 }
+            }
+            break;
+
+        case COMM_PGUP:
+            kc = alt_is_pressed() ? KC_PGUP : KC_COMM;
+            if (record->event.pressed) {
+                register_code(kc);
+            } else {
+                unregister_code(KC_PGUP);
+                unregister_code(KC_COMM);
             }
             break;
         default:

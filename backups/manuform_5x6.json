@@ -36,7 +36,7 @@
       "KC_U",
       "KC_I",
       "KC_E",
-      "KC_COMM",
+      "ANY(COMM_PGUP)",
       "KC_C",
       "KC_T",
       "KC_S",
