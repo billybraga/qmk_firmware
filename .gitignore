@@ -34,6 +34,7 @@ quantum/version.h
 *.bin
 *.eep
 *.hex
+firmware-backups/
 *.qmk
 *.uf2
 
