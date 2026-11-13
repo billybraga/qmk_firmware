@@ -1,0 +1,56 @@
+name: Keymap viewer
+
+on:
+  push:
+    branches:
+    - master
+    paths:
+    - 'keymap-viewer/**'
+    - 'backups/manuform_5x6.json'
+    - 'keyboards/handwired/dactyl_manuform/5x6/keymaps/retro/combos.def'
+    - '.github/workflows/keymap-viewer.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    if: github.repository_owner == 'billybraga'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+        sparse-checkout: |
+          keymap-viewer
+          backups
+          keyboards/handwired/dactyl_manuform/5x6/keymaps/retro
+
+    - name: Assemble site
+      run: |
+        mkdir -p _site/data
+        cp keymap-viewer/* _site/
+        cp backups/manuform_5x6.json _site/data/
+        # Email snippets stay out of the published site
+        grep -v '@' keyboards/handwired/dactyl_manuform/5x6/keymaps/retro/combos.def > _site/data/combos.def
+        touch _site/.nojekyll
+
+    - uses: actions/configure-pages@v5
+
+    - uses: actions/upload-pages-artifact@v3
+      with:
+        path: _site
+
+    - id: deployment
+      uses: actions/deploy-pages@v4

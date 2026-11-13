@@ -291,22 +291,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case MUTE_LEFT_DESKTOP:
             if (record->event.pressed) {
                 if (record->tap.count > 0) {
-                    // Key is being tapped
-                    // With old teams (bring back when teams implements universal mic): alt+win+k
-                    // register_code(KC_LALT);
-                    // register_code(KC_LGUI);
-                    // tap_code(KC_K);
-                    // unregister_code(KC_LGUI);
-                    // unregister_code(KC_LALT);
-
-                    // Currently, with new teams, ctrl+shift+alt+M (ImproveWindows.Wpf)
+                    // Key is being tapped: alt+win+k (Windows mic mute)
                     register_code(KC_LALT);
-                    register_code(KC_LSFT);
-                    register_code(KC_LCTL);
-                    tap_code(KC_M);
-                    unregister_code(KC_LCTL);
-                    unregister_code(KC_LSFT);
+                    register_code(KC_LGUI);
+                    tap_code(KC_K);
+                    unregister_code(KC_LGUI);
                     unregister_code(KC_LALT);
+
+                    // Previously, with new teams, ctrl+shift+alt+M (ImproveWindows.Wpf)
+                    // register_code(KC_LALT);
+                    // register_code(KC_LSFT);
+                    // register_code(KC_LCTL);
+                    // tap_code(KC_M);
+                    // unregister_code(KC_LCTL);
+                    // unregister_code(KC_LSFT);
+                    // unregister_code(KC_LALT);
                 } else {
                     // Key is being held, ctrl+win+left
                     register_code(KC_LCTL);

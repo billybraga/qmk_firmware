@@ -1,0 +1,61 @@
+:root {
+  --bg: #f7f6f2; --panel: #ffffff; --text: #1f1e1c; --muted: #6b6a65; --border: #d8d6cd;
+  --key: #ffffff; --key-text: #1f1e1c; --trns: #efede6; --trns-text: #a3a199; --none: transparent;
+  --hold: #f5c4b3; --hold-b: #993c1d; --match: #9fe1cb; --match-b: #0f6e56;
+  --layer: #cecbf6; --layer-b: #534ab7; --sel: #378add;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1c1a; --panel: #262624; --text: #ecebe6; --muted: #a3a199; --border: #3d3d3a;
+    --key: #30302d; --key-text: #ecebe6; --trns: #262624; --trns-text: #6b6a65;
+    --hold: #712b13; --hold-b: #f0997b; --match: #085041; --match-b: #5dcaa5;
+    --layer: #3c3489; --layer-b: #afa9ec; --sel: #85b7eb;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+header { display: flex; gap: 16px; align-items: center; padding: 16px 20px 8px; flex-wrap: wrap; }
+h1 { font-size: 18px; font-weight: 600; margin: 0; }
+#search { flex: 1; min-width: 260px; font: inherit; padding: 9px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); color: var(--text); }
+#search:focus { outline: 2px solid var(--sel); outline-offset: -1px; }
+nav { display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 20px 8px; }
+nav button { font: inherit; font-size: 13px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); background: var(--panel); color: var(--text); cursor: pointer; }
+nav button.active { background: var(--sel); border-color: var(--sel); color: #fff; }
+nav button .n { opacity: .6; margin-right: 4px; }
+nav button.has-match { border-color: var(--match-b); box-shadow: inset 0 -3px 0 var(--match-b); }
+main { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 16px; padding: 8px 20px 24px; }
+@media (max-width: 1000px) { main { grid-template-columns: 1fr; } }
+#board { width: 100%; height: auto; display: block; }
+#legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--muted); margin-top: 6px; }
+.sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; border: 1px solid; }
+.sw.hold { background: var(--hold); border-color: var(--hold-b); }
+.sw.match { background: var(--match); border-color: var(--match-b); }
+.sw.layer { background: var(--layer); border-color: var(--layer-b); }
+.sw.trns { background: var(--trns); border-color: var(--border); }
+.panel { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; }
+.panel h2 { font-size: 15px; margin: 0 0 6px; font-weight: 600; }
+.panel p { margin: 4px 0; }
+.muted { color: var(--muted); font-size: 13px; }
+kbd { font: 12px ui-monospace, Consolas, monospace; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; }
+code { font: 12px ui-monospace, Consolas, monospace; }
+.steps { margin: 6px 0 0; padding-left: 20px; }
+.steps li { margin: 3px 0; }
+#results ul { list-style: none; margin: 0; padding: 0; max-height: 55vh; overflow: auto; }
+#results li { padding: 7px 8px; border-radius: 6px; cursor: pointer; }
+#results li:hover, #results li.active { background: var(--bg); }
+#results .what { font-weight: 600; }
+#results .where { font-size: 13px; color: var(--muted); }
+.key { cursor: pointer; --f: var(--key); --s: var(--border); --w: 1; }
+.key .skirt { fill: color-mix(in srgb, var(--f) 82%, #000); stroke: var(--s); stroke-width: var(--w); }
+.key .top { fill: var(--f); stroke: color-mix(in srgb, var(--s) 40%, transparent); stroke-width: 1; }
+.key text { fill: var(--key-text); text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+.key.trns { --f: var(--trns); }
+.key.trns .skirt { stroke-dasharray: 3 2; }
+.key.trns text { fill: var(--trns-text); }
+.key.none .skirt { fill: none; stroke-dasharray: 2 3; }
+.key.none .top { display: none; }
+.key.layer { --f: var(--layer); --s: var(--layer-b); }
+.key.match { --f: var(--match); --s: var(--match-b); --w: 2; }
+.key.hold { --f: var(--hold); --s: var(--hold-b); --w: 2; }
+.key.selected { --s: var(--sel); --w: 3; }
+.key:hover { --s: var(--sel); }
