@@ -1,10 +1,11 @@
 #!/bin/bash
 
-cd ~/dev/thirdparty/qmk/qmk_firmware/
+cd "$(dirname "$(readlink -f "$0")")"
+export PATH=~/.qmk-venv/bin:$PATH
 
-if [ -f /mnt/c/Users/billy/Downloads/billybraga.json ]; then
-    cat /mnt/c/Users/billy/Downloads/billybraga.json > backups/manuform_5x6.json
-    rm /mnt/c/Users/billy/Downloads/billybraga.json
+if [ -f /mnt/c/Users/BillyProgi/Downloads/billybraga.json ]; then
+    cat /mnt/c/Users/BillyProgi/Downloads/billybraga.json > backups/manuform_5x6.json
+    rm /mnt/c/Users/BillyProgi/Downloads/billybraga.json
 else
     echo ----
     echo REUSING OLD JSON

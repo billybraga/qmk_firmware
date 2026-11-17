@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 set -e
 
-cd ~/dev/thirdparty/qmk/qmk_firmware/
+cd "$(dirname "$(readlink -f "$0")")"
 git pull
-make handwired/dactyl_manuform/5x6:retro:dfu
+# Caterina bootloader -> avrdude (":flash" picks it from rules.mk), not DFU
+make handwired/dactyl_manuform/5x6:retro:flash

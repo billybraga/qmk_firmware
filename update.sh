@@ -1,9 +1,10 @@
 #!/usr/bin/bash
 set -e
 
-file=/mnt/c/Users/billy/Downloads/billybraga.json
+file=/mnt/c/Users/BillyProgi/Downloads/billybraga.json
 
-cd ~/dev/thirdparty/qmk/qmk_firmware/
+cd "$(dirname "$(readlink -f "$0")")"
+export PATH=~/.qmk-venv/bin:$PATH
 git pull
 if [ -f $file ]; then
     cat $file > backups/manuform_5x6.json
