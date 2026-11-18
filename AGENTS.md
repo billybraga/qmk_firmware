@@ -17,6 +17,8 @@ Personal QMK fork. The only thing that matters here is the **`retro` keymap for 
 
 **Keymap finder web app** — `keymap-viewer/` (static `index.html` + `app.js` + `style.css`, no build step). It reads `backups/manuform_5x6.json` and `combos.def` at runtime, so it follows keymap changes automatically. Human labels for custom keycodes, layer names and the CSA character table are hardcoded in `app.js` (`CUSTOM`, `LAYER_NAMES`, `CSA`) — update them when adding custom keycodes or layers. "How to reach" a layer is computed (BFS over hold keys + `TRI_LAYERS`). Local preview: `python -m http.server 8137` from repo root → `http://localhost:8137/keymap-viewer/` (`.claude/launch.json` has this). Deployed by `.github/workflows/keymap-viewer.yml` to GitHub Pages (repo Settings → Pages → Source: GitHub Actions); the workflow strips combo lines containing `@` before publishing.
 
+**GitHub Actions on the fork:** every upstream QMK workflow is **disabled on GitHub** (`gh workflow disable`, not deleted, so upstream merges don't conflict); only `Keymap viewer` (and GitHub's automatic Dependency Graph) stay active. After merging upstream, check `gh workflow list -R billybraga/qmk_firmware --all` and disable any newly added upstream workflow.
+
 Build: `make handwired/dactyl_manuform/5x6:retro` (or `qmk compile -kb handwired/dactyl_manuform/5x6 -km retro`).
 
 ## OS layout assumption: Canadian Multilingual Standard (CSA)
