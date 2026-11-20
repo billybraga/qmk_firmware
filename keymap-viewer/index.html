@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dactyl keymap finder</title>
+  <link rel="stylesheet" href="style.css?v=7">
+</head>
+<body>
+  <header>
+    <h1>Dactyl keymap finder</h1>
+    <input id="search" type="search" placeholder="Find a key or combo: ctrl tab, é, {, pgup, snap, pourquoi…" autocomplete="off" autofocus>
+  </header>
+
+  <nav id="layers" aria-label="Layers"></nav>
+
+  <main>
+    <section id="board-wrap">
+      <svg id="board" role="img" aria-label="Keyboard layout"></svg>
+      <div id="legend">
+        <span><i class="sw hold"></i>Hold to reach this layer</span>
+        <span><i class="sw match"></i>Search match</span>
+        <span><i class="sw layer"></i>Layer key</span>
+        <span><i class="sw trns"></i>Falls through to base</span>
+      </div>
+    </section>
+
+    <aside>
+      <div id="details" class="panel"></div>
+      <div id="results" class="panel"></div>
+    </aside>
+  </main>
+
+  <script src="app.js?v=7"></script>
+</body>
+</html>
